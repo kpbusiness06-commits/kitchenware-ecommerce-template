@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Home &mdash; Kitchenware Store Template</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="announce">Announcement Placeholder &mdash; Add your store announcement here</div>
+  <div class="header-inner">
+    <button class="icon-btn nav-toggle" aria-label="Open menu" data-nav-toggle>&#9776;</button>
+    <a class="logo" href="index.html" aria-label="Home"><span class="logo-box">LOGO</span><span class="logo-text">Brand Name<br><small>Placeholder</small></span></a>
+    <nav class="main-nav" data-nav>
+      <a href="index.html">Home</a>
+      <a href="shop.html">Shop</a>
+      <a href="about.html">About Us</a>
+      <a href="faq.html">FAQ</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <div class="header-actions">
+      <button class="icon-btn" aria-label="Search" data-search-open>&#128269;</button>
+      <a class="icon-btn cart-link" href="cart.html" aria-label="Cart">&#128722;<span class="cart-count" data-cart-count>0</span></a>
+    </div>
+  </div>
+  <div class="search-bar" data-search-bar hidden>
+    <form class="search-form" data-search-form>
+      <input type="search" placeholder="Search placeholder &mdash; try a product or category" aria-label="Search" data-search-input>
+      <button type="submit" class="btn btn-dark">Search</button>
+      <button type="button" class="icon-btn" data-search-close aria-label="Close search">&times;</button>
+    </form>
+    <p class="search-hint" data-search-hint>Search runs on the Shop page grid in this template.</p>
+  </div>
+</header>
+<main>
+
+<section class="hero">
+  <div class="hero-copy">
+    <span class="eyebrow">Hero Eyebrow Placeholder</span>
+    <h1>Headline Placeholder for a Premium Kitchen Store</h1>
+    <p class="placeholder-text">Subheadline placeholder. Add your own value statement here &mdash; quality, craft, and everyday cooking, in your words.</p>
+    <div class="hero-ctas">
+      <a class="btn btn-dark" href="shop.html">Shop the Collection</a>
+      <a class="btn btn-ghost" href="about.html">Our Story</a>
+    </div>
+  </div>
+  <div class="hero-media"><span>Hero Image<br>Placeholder</span></div>
+</section>
+
+<section class="section">
+  <div class="section-head"><h2>Shop by Category</h2><a href="shop.html">View all</a></div>
+  <div class="grid grid-4">
+    <a class="tile" href="shop.html"><span>Category Image Placeholder</span><strong>Category Placeholder A</strong></a>
+    <a class="tile" href="shop.html"><span>Category Image Placeholder</span><strong>Category Placeholder B</strong></a>
+    <a class="tile" href="shop.html"><span>Category Image Placeholder</span><strong>Category Placeholder C</strong></a>
+    <a class="tile" href="shop.html"><span>Category Image Placeholder</span><strong>Category Placeholder D</strong></a>
+  </div>
+</section>
+
+<section class="promo"><span>Promotional Banner Placeholder &mdash; Add your current offer here</span></section>
+
+<section class="section">
+  <div class="section-head"><h2>Featured Products</h2><a href="shop.html">Shop all</a></div>
+  <div class="grid grid-4">
+    <article class="card" data-card data-category="Category A" data-name="Product Placeholder 1" data-price="0">
+  <a class="card-media" href="product.html"><span>Product Image<br>Placeholder</span></a>
+  <div class="card-body">
+    <span class="card-cat">Category A Placeholder</span>
+    <h3><a href="product.html">Product Name Placeholder 1</a></h3>
+    <p class="price">$0.00 <small>Price Placeholder</small></p>
+    <button class="btn btn-dark btn-sm" data-add-to-cart data-id="p1" data-label="Product Placeholder 1">Add to Cart</button>
+  </div>
+</article>
+    <article class="card" data-card data-category="Category B" data-name="Product Placeholder 2" data-price="0">
+  <a class="card-media" href="product.html"><span>Product Image<br>Placeholder</span></a>
+  <div class="card-body">
+    <span class="card-cat">Category B Placeholder</span>
+    <h3><a href="product.html">Product Name Placeholder 2</a></h3>
+    <p class="price">$0.00 <small>Price Placeholder</small></p>
+    <button class="btn btn-dark btn-sm" data-add-to-cart data-id="p2" data-label="Product Placeholder 2">Add to Cart</button>
+  </div>
+</article>
+    <article class="card" data-card data-category="Category C" data-name="Product Placeholder 3" data-price="0">
+  <a class="card-media" href="product.html"><span>Product Image<br>Placeholder</span></a>
+  <div class="card-body">
+    <span class="card-cat">Category C Placeholder</span>
+    <h3><a href="product.html">Product Name Placeholder 3</a></h3>
+    <p class="price">$0.00 <small>Price Placeholder</small></p>
+    <button class="btn btn-dark btn-sm" data-add-to-cart data-id="p3" data-label="Product Placeholder 3">Add to Cart</button>
+  </div>
+</article>
+    <article class="card" data-card data-category="Category A" data-name="Product Placeholder 4" data-price="0">
+  <a class="card-media" href="product.html"><span>Product Image<br>Placeholder</span></a>
+  <div class="card-body">
+    <span class="card-cat">Category A Placeholder</span>
+    <h3><a href="product.html">Product Name Placeholder 4</a></h3>
+    <p class="price">$0.00 <small>Price Placeholder</small></p>
+    <button class="btn btn-dark btn-sm" data-add-to-cart data-id="p4" data-label="Product Placeholder 4">Add to Cart</button>
+  </div>
+</article>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-head"><h2>Featured Collections</h2></div>
+  <div class="grid grid-2">
+    <a class="tile tile-wide" href="shop.html"><span>Collection Image Placeholder</span><strong>Collection Placeholder One</strong></a>
+    <a class="tile tile-wide" href="shop.html"><span>Collection Image Placeholder</span><strong>Collection Placeholder Two</strong></a>
+  </div>
+</section>
+
+<section class="section reviews">
+  <div class="section-head"><h2>Customer Reviews</h2></div>
+  <div class="grid grid-3">
+    <blockquote class="review"><div class="stars">***** <small>Rating Placeholder</small></div><p class="placeholder-text">&ldquo;Review text placeholder. Add a real customer review here.&rdquo;</p><cite>Reviewer Name Placeholder</cite></blockquote>
+    <blockquote class="review"><div class="stars">***** <small>Rating Placeholder</small></div><p class="placeholder-text">&ldquo;Review text placeholder. Add a real customer review here.&rdquo;</p><cite>Reviewer Name Placeholder</cite></blockquote>
+    <blockquote class="review"><div class="stars">***** <small>Rating Placeholder</small></div><p class="placeholder-text">&ldquo;Review text placeholder. Add a real customer review here.&rdquo;</p><cite>Reviewer Name Placeholder</cite></blockquote>
+  </div>
+</section>
+
+<section class="newsletter">
+  <h2>Newsletter Signup</h2>
+  <p class="placeholder-text">Invite placeholder &mdash; tell visitors what they get for joining your list.</p>
+  <form class="newsletter-form" data-newsletter>
+    <input type="email" required placeholder="Email address" aria-label="Email address">
+    <button class="btn btn-dark" type="submit">Sign Up</button>
+  </form>
+  <p class="form-note" data-newsletter-note></p>
+</section>
+
+</main>
+<footer class="site-footer">
+  <div class="footer-grid">
+    <div>
+      <span class="logo-box">LOGO</span>
+      <p class="placeholder-text">Short brand statement placeholder. Add your own business description here.</p>
+    </div>
+    <div>
+      <h4>Shop</h4>
+      <a href="shop.html">All Products</a>
+      <a href="shop.html">Category Placeholder A</a>
+      <a href="shop.html">Category Placeholder B</a>
+      <a href="shop.html">Category Placeholder C</a>
+    </div>
+    <div>
+      <h4>Customer Care</h4>
+      <a href="faq.html">FAQ</a>
+      <a href="shipping-policy.html">Shipping Policy</a>
+      <a href="returns-policy.html">Return &amp; Refund Policy</a>
+      <a href="contact.html">Contact Us</a>
+    </div>
+    <div>
+      <h4>Legal</h4>
+      <a href="privacy-policy.html">Privacy Policy</a>
+      <a href="terms.html">Terms &amp; Conditions</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>&copy; <span data-year></span> Business Name Placeholder. All rights reserved.</span>
+    <span class="placeholder-text">Payment icons placeholder</span>
+  </div>
+</footer>
+<script src="script.js"></script>
+</body>
+</html>
