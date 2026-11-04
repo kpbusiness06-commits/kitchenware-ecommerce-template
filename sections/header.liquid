@@ -1,0 +1,35 @@
+<header class="site-header">
+  <div class="announce">{{ section.settings.announcement }}</div>
+  <div class="header-inner">
+    <button class="icon-btn nav-toggle" aria-label="Open menu" data-nav-toggle>&#9776;</button>
+    <a class="logo" href="{{ routes.root_url }}" aria-label="{{ shop.name }}">
+      <span class="logo-box">LOGO</span>
+      <span class="logo-text">{{ shop.name }}<br><small>Tagline Placeholder</small></span>
+    </a>
+    <nav class="main-nav" data-nav>
+      {% for link in linklists.main-menu.links %}
+        <a href="{{ link.url }}">{{ link.title }}</a>
+      {% else %}
+        <a href="{{ routes.root_url }}">Home</a>
+        <a href="{{ routes.all_products_collection_url }}">Shop</a>
+        <a href="{{ routes.search_url }}">Search</a>
+      {% endfor %}
+    </nav>
+    <div class="header-actions">
+      <button class="icon-btn" aria-label="Search" data-search-open>&#128269;</button>
+      <a class="icon-btn cart-link" href="{{ routes.cart_url }}" aria-label="Cart">&#128722;<span class="cart-count">{{ cart.item_count }}</span></a>
+    </div>
+  </div>
+  <div class="search-bar" data-search-bar hidden>
+    <form class="search-form" action="{{ routes.search_url }}" method="get" role="search">
+      <input type="search" name="q" placeholder="Search the store" aria-label="Search">
+      <button type="submit" class="btn btn-dark">Search</button>
+      <button type="button" class="icon-btn" data-search-close aria-label="Close search">&times;</button>
+    </form>
+  </div>
+</header>
+{% schema %}
+{"name": "Header", "settings": [
+  {"type": "text", "id": "announcement", "label": "Announcement", "default": "Announcement Placeholder — Add your store announcement here"}
+]}
+{% endschema %}

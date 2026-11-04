@@ -1,0 +1,25 @@
+<section class="page-head"><h1>Search</h1></section>
+<section class="section">
+  <form class="search-form" action="{{ routes.search_url }}" method="get" role="search" style="margin:0 0 1.4rem;">
+    <input type="search" name="q" value="{{ search.terms | escape }}" placeholder="Search the store" aria-label="Search">
+    <button type="submit" class="btn btn-dark">Search</button>
+  </form>
+  {% if search.performed %}
+    <p class="placeholder-text">{{ search.results_count }} results for &ldquo;{{ search.terms }}&rdquo;</p>
+    <div class="grid grid-3">
+      {% for item in search.results %}
+        {% if item.object_type == 'product' %}
+          {% render 'product-card', product: item %}
+        {% else %}
+          <article class="card"><div class="card-body">
+            <span class="card-cat">{{ item.object_type | capitalize }}</span>
+            <h3><a href="{{ item.url }}">{{ item.title }}</a></h3>
+          </div></article>
+        {% endif %}
+      {% endfor %}
+    </div>
+  {% endif %}
+</section>
+{% schema %}
+{"name": "Search", "settings": []}
+{% endschema %}

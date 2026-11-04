@@ -1,0 +1,33 @@
+[
+  {
+    "name": "theme_info",
+    "theme_name": "Kitchenware Template",
+    "theme_version": "1.0.0",
+    "theme_author": "Store Owner",
+    "theme_documentation_url": "https://github.com/kpbusiness06-commits/kitchenware-ecommerce-template",
+    "theme_support_url": "https://github.com/kpbusiness06-commits/kitchenware-ecommerce-template"
+  },
+  {
+    "name": "Colors",
+    "settings": [
+      {
+        "type": "color",
+        "id": "color_background",
+        "label": "Background",
+        "default": "#faf8f4"
+      },
+      {
+        "type": "color",
+        "id": "color_text",
+        "label": "Text",
+        "default": "#20241f"
+      },
+      {
+        "type": "color",
+        "id": "color_accent",
+        "label": "Accent",
+        "default": "#2f5233"
+      }
+    ]
+  }
+]

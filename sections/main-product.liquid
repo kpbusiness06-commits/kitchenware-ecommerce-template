@@ -1,0 +1,67 @@
+<section class="product-layout">
+  <div class="gallery">
+    <div class="gallery-main">
+      {% if product.featured_image %}
+        <img src="{{ product.featured_image | image_url: width: 1000 }}" alt="{{ product.featured_image.alt | escape }}" data-gallery-main>
+      {% else %}
+        <span>Product Image<br>Placeholder</span>
+      {% endif %}
+    </div>
+    {% if product.images.size > 1 %}
+      <div class="gallery-thumbs">
+        {% for image in product.images %}
+          <button class="thumb{% if forloop.first %} is-active{% endif %}" data-gallery-thumb data-full="{{ image | image_url: width: 1000 }}"><span>Image {{ forloop.index }}</span></button>
+        {% endfor %}
+      </div>
+    {% endif %}
+  </div>
+  <div class="product-info">
+    <span class="card-cat">{{ product.type | default: 'Category Placeholder' }}</span>
+    <h1>{{ product.title }}</h1>
+    <p class="price price-lg">{{ product.price | money }}{% if product.compare_at_price > product.price %} <small>{{ product.compare_at_price | money }}</small>{% endif %}</p>
+    <div class="placeholder-text">{{ product.description }}</div>
+    {% form 'product', product %}
+      {% unless product.has_only_default_variant %}
+        <label class="field">Variant
+          <select name="id">
+            {% for variant in product.variants %}
+              <option value="{{ variant.id }}"{% if variant == product.selected_or_first_available_variant %} selected{% endif %}{% unless variant.available %} disabled{% endunless %}>
+                {{ variant.title }} — {{ variant.price | money }}{% unless variant.available %} (Sold out){% endunless %}
+              </option>
+            {% endfor %}
+          </select>
+        </label>
+      {% else %}
+        <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+      {% endunless %}
+      <div class="buy-row">
+        <div class="qty" data-qty>
+          <button type="button" data-qty-minus aria-label="Decrease quantity">&minus;</button>
+          <input type="text" name="quantity" value="1" inputmode="numeric" aria-label="Quantity" data-qty-input>
+          <button type="button" data-qty-plus aria-label="Increase quantity">+</button>
+        </div>
+        <button class="btn btn-dark" type="submit" name="add" {% unless product.available %}disabled{% endunless %}>
+          {% if product.available %}Add to Cart{% else %}Sold Out{% endif %}
+        </button>
+      </div>
+    {% endform %}
+    <div class="accordion" data-accordion>
+      <button class="acc-head" data-acc-head>Specifications</button>
+      <div class="acc-body" hidden>
+        <table class="spec-table">
+          <tr><th>Material</th><td>Specification Placeholder</td></tr>
+          <tr><th>Dimensions</th><td>Specification Placeholder</td></tr>
+          <tr><th>Weight</th><td>Specification Placeholder</td></tr>
+          <tr><th>Care</th><td>Specification Placeholder</td></tr>
+        </table>
+      </div>
+      <button class="acc-head" data-acc-head>Shipping Information</button>
+      <div class="acc-body" hidden><p class="placeholder-text">Shipping detail placeholder. See the Shipping Policy page.</p></div>
+      <button class="acc-head" data-acc-head>Returns</button>
+      <div class="acc-body" hidden><p class="placeholder-text">Return detail placeholder. See the Return &amp; Refund Policy page.</p></div>
+    </div>
+  </div>
+</section>
+{% schema %}
+{"name": "Product", "settings": []}
+{% endschema %}

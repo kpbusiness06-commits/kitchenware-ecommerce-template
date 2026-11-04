@@ -1,0 +1,26 @@
+<section class="page-head"><h1>Shopping Cart</h1></section>
+<section class="prose">
+  {% if cart.item_count == 0 %}
+    <p class="placeholder-text">Your cart is empty. Browse the <a href="{{ routes.all_products_collection_url }}">Shop</a>.</p>
+  {% else %}
+    {% form 'cart', cart %}
+      {% for item in cart.items %}
+        <div class="cart-line">
+          <div class="grow"><strong>{{ item.product.title }}</strong>{% if item.variant.title != 'Default Title' %}<br><small class="placeholder-text">{{ item.variant.title }}</small>{% endif %}<br><small class="placeholder-text">{{ item.final_price | money }} each</small></div>
+          <input type="text" name="updates[]" value="{{ item.quantity }}" inputmode="numeric" aria-label="Quantity" style="width:56px;text-align:center;padding:.5rem;border:1px solid var(--line);border-radius:10px;">
+          <strong>{{ item.final_line_price | money }}</strong>
+          <a class="btn btn-ghost btn-sm" href="{{ item.url_to_remove }}">Remove</a>
+        </div>
+      {% endfor %}
+      <div class="cart-summary">
+        <div class="summary-row"><span>Subtotal</span><strong>{{ cart.total_price | money }}</strong></div>
+        <p class="placeholder-text">Shipping and taxes are calculated at checkout.</p>
+        <button class="btn btn-ghost" type="submit" name="update">Update Cart</button>
+        <button class="btn btn-dark" type="submit" name="checkout">Proceed to Checkout</button>
+      </div>
+    {% endform %}
+  {% endif %}
+</section>
+{% schema %}
+{"name": "Cart", "settings": []}
+{% endschema %}

@@ -1,0 +1,43 @@
+<section class="page-head">
+  <h1>{{ collection.title }}</h1>
+  {% if collection.description != blank %}<div class="placeholder-text">{{ collection.description }}</div>{% endif %}
+</section>
+<section class="section">
+  <div class="shop-toolbar">
+    <span>{{ collection.products_count }} products</span>
+    <form method="get">
+      <label>Sort
+        <select name="sort_by">
+          {% for option in collection.sort_options %}
+            <option value="{{ option.value }}"{% if option.value == collection.sort_by %} selected{% endif %}>{{ option.name }}</option>
+          {% endfor %}
+        </select>
+      </label>
+      <button class="btn btn-ghost btn-sm" type="submit">Apply</button>
+    </form>
+  </div>
+  {% paginate collection.products by 24 %}
+    <div class="grid grid-3">
+      {% for product in collection.products %}
+        {% render 'product-card', product: product %}
+      {% else %}
+        {% for i in (1..3) %}
+          <article class="card">
+            <div class="card-media"><span>Product Image<br>Placeholder</span></div>
+            <div class="card-body">
+              <span class="card-cat">Category Placeholder</span>
+              <h3>Product Name Placeholder</h3>
+              <p class="price">$0.00 <small>Price Placeholder</small></p>
+            </div>
+          </article>
+        {% endfor %}
+      {% endfor %}
+    </div>
+    {% if paginate.pages > 1 %}
+      <div class="section-head">{{ paginate | default_pagination }}</div>
+    {% endif %}
+  {% endpaginate %}
+</section>
+{% schema %}
+{"name": "Collection", "settings": []}
+{% endschema %}

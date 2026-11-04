@@ -1,0 +1,26 @@
+{
+  "sections": {
+    "hero": {
+      "type": "hero"
+    },
+    "featured": {
+      "type": "featured-collection"
+    },
+    "promo": {
+      "type": "promo-banner"
+    },
+    "reviews": {
+      "type": "reviews-placeholder"
+    },
+    "newsletter": {
+      "type": "newsletter"
+    }
+  },
+  "order": [
+    "hero",
+    "featured",
+    "promo",
+    "reviews",
+    "newsletter"
+  ]
+}

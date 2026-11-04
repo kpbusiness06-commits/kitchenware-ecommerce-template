@@ -1,0 +1,31 @@
+<section class="section">
+  <div class="section-head"><h2>{{ section.settings.heading }}</h2>{% if section.settings.collection %}<a href="{{ section.settings.collection.url }}">View all</a>{% endif %}</div>
+  <div class="grid grid-4">
+    {% if section.settings.collection %}
+      {% for product in section.settings.collection.products limit: section.settings.product_limit %}
+        {% render 'product-card', product: product %}
+      {% endfor %}
+    {% else %}
+      {% for i in (1..4) %}
+        <article class="card">
+          <div class="card-media"><span>Product Image<br>Placeholder</span></div>
+          <div class="card-body">
+            <span class="card-cat">Category Placeholder</span>
+            <h3>Product Name Placeholder</h3>
+            <p class="price">$0.00 <small>Price Placeholder</small></p>
+          </div>
+        </article>
+      {% endfor %}
+    {% endif %}
+  </div>
+  {% if section.settings.collection == blank %}
+    <p class="placeholder-text">Choose a collection in the theme editor and this section fills with real products.</p>
+  {% endif %}
+</section>
+{% schema %}
+{"name": "Featured collection", "settings": [
+  {"type": "text", "id": "heading", "label": "Heading", "default": "Featured Products"},
+  {"type": "collection", "id": "collection", "label": "Collection"},
+  {"type": "range", "id": "product_limit", "label": "Products to show", "min": 4, "max": 12, "step": 4, "default": 4}
+], "presets": [{"name": "Featured collection"}]}
+{% endschema %}

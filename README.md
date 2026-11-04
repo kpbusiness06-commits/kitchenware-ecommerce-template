@@ -43,3 +43,25 @@ python3 -m http.server 8000
 
 Push this folder as a repository, then in GitHub: Settings → Pages →
 Deploy from a branch → `main` / root.
+
+## Use as a Shopify theme
+
+This repo also carries a full Shopify Online Store 2.0 theme built from the
+same design (the static HTML pages stay at the root for reference; Shopify
+reads only the theme folders):
+
+- `layout/theme.liquid` — the theme shell (header + footer sections)
+- `config/` — theme settings schema and data
+- `locales/en.default.json`
+- `assets/` — `styles.css` (the same design system) and `script.js`
+- `sections/` — header, footer, hero, featured collection, promo banner,
+  reviews placeholder, newsletter, and the main product / collection / cart /
+  page / search / 404 sections. Product, collection, cart, search, and the
+  newsletter form run on real Shopify data and forms.
+- `snippets/product-card.liquid`
+- `templates/` — JSON templates for index, product, collection, cart, page,
+  search, and 404
+
+Connect it in Shopify: Online Store → Themes → Add theme → Connect from
+GitHub → this repository → `main`. It installs as an **unpublished** theme;
+your live theme is untouched until you choose to publish.

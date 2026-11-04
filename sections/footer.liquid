@@ -1,0 +1,36 @@
+<footer class="site-footer">
+  <div class="footer-grid">
+    <div>
+      <span class="logo-box">LOGO</span>
+      <p class="placeholder-text">Short brand statement placeholder. Add your own business description here.</p>
+    </div>
+    <div>
+      <h4>Shop</h4>
+      {% for link in linklists.footer.links %}
+        <a href="{{ link.url }}">{{ link.title }}</a>
+      {% else %}
+        <a href="{{ routes.all_products_collection_url }}">All Products</a>
+      {% endfor %}
+    </div>
+    <div>
+      <h4>Customer Care</h4>
+      <a href="{{ pages['faq'].url | default: '#' }}">FAQ</a>
+      <a href="{{ pages['shipping-policy'].url | default: '#' }}">Shipping Policy</a>
+      <a href="{{ pages['return-refund-policy'].url | default: '#' }}">Return &amp; Refund Policy</a>
+      <a href="{{ pages['contact'].url | default: '#' }}">Contact Us</a>
+    </div>
+    <div>
+      <h4>Legal</h4>
+      {% for policy in shop.policies %}
+        <a href="{{ policy.url }}">{{ policy.title }}</a>
+      {% endfor %}
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>&copy; {{ 'now' | date: '%Y' }} {{ shop.name }}. All rights reserved.</span>
+    <span class="placeholder-text">Payment icons placeholder</span>
+  </div>
+</footer>
+{% schema %}
+{"name": "Footer", "settings": []}
+{% endschema %}
