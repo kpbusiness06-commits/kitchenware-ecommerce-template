@@ -25,7 +25,7 @@
       "type": "featured-collection",
       "settings": {
         "heading": "Featured Products",
-        "collection": "",
+        "collection": "best-selling",
         "product_limit": 4
       }
     },
@@ -47,6 +47,13 @@
         "heading": "Newsletter Signup",
         "text": "Invite placeholder — tell visitors what they get for joining your list."
       }
+    },
+    "promo_banner_Rbnw9m": {
+      "type": "promo-banner",
+      "name": "Promo banner",
+      "settings": {
+        "text": "Promotional Banner Placeholder — Add your current offer here"
+      }
     }
   },
   "order": [
@@ -54,6 +61,7 @@
     "featured",
     "promo",
     "reviews",
-    "newsletter"
+    "newsletter",
+    "promo_banner_Rbnw9m"
   ]
 }
