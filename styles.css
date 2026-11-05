@@ -1,15 +1,15 @@
 /* Kitchenware Store Template — design system
    Edit the variables below to retheme the whole template. */
 :root{
-  --bg:#faf8f4;
-  --surface:#ffffff;
-  --ink:#20241f;
-  --muted:#6f7468;
-  --line:#e4ded2;
-  --accent:#2f5233;      /* deep kitchen green */
-  --accent-ink:#ffffff;
-  --brass:#b08d57;       /* warm brass accent */
-  --placeholder:#efe9dd; /* placeholder panel fill */
+  --bg:#242321;          /* charcoal - main background */
+  --surface:#2c2a27;     /* lifted charcoal - cards and panels */
+  --ink:#f7f4ed;         /* warm white - headings and body text */
+  --muted:#a79f8f;       /* warm gray - secondary text */
+  --line:#3e3b35;        /* borders on charcoal */
+  --accent:#b69a5a;      /* muted gold - accents and links */
+  --accent-ink:#242321;  /* charcoal - text on gold */
+  --brass:#b69a5a;       /* muted gold - small accents */
+  --placeholder:#302d29; /* placeholder panel fill */
   --radius:14px;
   --max:1180px;
   --font-body:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
@@ -24,8 +24,8 @@ h1,h2,h3{font-family:var(--font-display);font-weight:600;line-height:1.15;margin
 h4{margin:0 0 .5em;font-size:.95rem;letter-spacing:.04em;text-transform:uppercase}
 .placeholder-text{color:var(--muted)}
 .btn{display:inline-block;padding:.8rem 1.5rem;border-radius:999px;border:1px solid var(--ink);font-weight:600;cursor:pointer;font-size:.95rem;background:transparent;color:var(--ink)}
-.btn-dark{background:var(--ink);color:#fff}
-.btn-dark:hover{background:var(--accent);border-color:var(--accent)}
+.btn-dark{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.btn-dark:hover{background:#a3874c;border-color:#a3874c}
 .btn-ghost:hover{border-color:var(--brass);color:var(--brass)}
 .btn-sm{padding:.55rem 1.1rem;font-size:.88rem}
 .icon-btn{background:none;border:0;font-size:1.25rem;cursor:pointer;color:var(--ink);position:relative;padding:.35rem}
@@ -35,8 +35,8 @@ h4{margin:0 0 .5em;font-size:.95rem;letter-spacing:.04em;text-transform:uppercas
 .form-note{color:var(--accent);font-weight:600;min-height:1.2em}
 
 /* Header */
-.announce{background:var(--ink);color:#f3efe6;text-align:center;font-size:.82rem;letter-spacing:.05em;padding:.5rem 1rem}
-.site-header{background:var(--surface);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:20}
+.announce{background:var(--accent);color:var(--accent-ink);text-align:center;font-size:.82rem;letter-spacing:.05em;padding:.5rem 1rem}
+.site-header{background:var(--bg);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:20}
 .header-inner{max-width:var(--max);margin:0 auto;display:flex;align-items:center;gap:1.25rem;padding:.9rem 1.25rem}
 .logo{display:flex;align-items:center;gap:.7rem;margin-right:auto}
 .logo-box{display:inline-flex;align-items:center;justify-content:center;border:2px dashed var(--brass);color:var(--brass);border-radius:10px;padding:.45rem .7rem;font-weight:700;letter-spacing:.12em;font-size:.8rem}
@@ -46,7 +46,7 @@ h4{margin:0 0 .5em;font-size:.95rem;letter-spacing:.04em;text-transform:uppercas
 .main-nav a{font-weight:600;font-size:.95rem}
 .main-nav a:hover{color:var(--accent)}
 .header-actions{display:flex;align-items:center;gap:.4rem}
-.cart-count{position:absolute;top:-4px;right:-6px;background:var(--brass);color:#fff;border-radius:999px;font-size:.68rem;font-weight:700;min-width:18px;height:18px;display:inline-flex;align-items:center;justify-content:center;padding:0 4px}
+.cart-count{position:absolute;top:-4px;right:-6px;background:var(--brass);color:var(--accent-ink);border-radius:999px;font-size:.68rem;font-weight:700;min-width:18px;height:18px;display:inline-flex;align-items:center;justify-content:center;padding:0 4px}
 .nav-toggle{display:none}
 .search-bar{border-top:1px solid var(--line);padding:.9rem 1.25rem}
 .search-form{max-width:720px;margin:0 auto;display:flex;gap:.6rem;align-items:center}
@@ -128,16 +128,16 @@ main{max-width:var(--max);margin:0 auto;padding:0 1.25rem 3rem}
 .summary-row{display:flex;justify-content:space-between;font-size:1.05rem;margin-bottom:.6rem}
 .cart-summary .btn{margin-right:.5rem}
 .checkout-layout{display:grid;grid-template-columns:1.2fr .8fr;gap:1.6rem;align-items:start;padding-bottom:2rem}
-.payment-note{border:2px dashed var(--brass);border-radius:var(--radius);padding:1rem;margin:1rem 0;background:#fdf9f0}
+.payment-note{border:2px dashed var(--brass);border-radius:var(--radius);padding:1rem;margin:1rem 0;background:var(--surface)}
 .contact-form{max-width:560px}
 
 /* Footer */
-.site-footer{background:var(--ink);color:#e9e4d8;margin-top:2rem}
+.site-footer{background:var(--bg);color:var(--ink);margin-top:2rem}
 .footer-grid{max-width:var(--max);margin:0 auto;display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:1.6rem;padding:2.4rem 1.25rem}
-.footer-grid a{display:block;margin:.3rem 0;color:#cfc8b8}
-.footer-grid a:hover{color:#fff}
-.footer-bottom{border-top:1px solid #39413a;max-width:var(--max);margin:0 auto;padding:1rem 1.25rem;display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;font-size:.88rem}
-.site-footer .placeholder-text{color:#a9a294}
+.footer-grid a{display:block;margin:.3rem 0;color:var(--muted)}
+.footer-grid a:hover{color:var(--accent)}
+.footer-bottom{border-top:1px solid var(--line);max-width:var(--max);margin:0 auto;padding:1rem 1.25rem;display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;font-size:.88rem}
+.site-footer .placeholder-text{color:var(--muted)}
 
 /* Responsive */
 @media (max-width:960px){
