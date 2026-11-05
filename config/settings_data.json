@@ -1,5 +1,47 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
-  "current": {},
+  "current": {
+    "sections": {
+      "header": {
+        "type": "header",
+        "settings": {
+          "announcement": "Announcement Placeholder — Add your store announcement here"
+        }
+      },
+      "footer": {
+        "type": "footer",
+        "settings": {}
+      }
+    },
+    "content_for_index": [],
+    "blocks": {
+      "6588702529468458379": {
+        "type": "shopify://apps/ecomposer-builder/blocks/app-embed/a0fc26e1-7741-4773-8b27-39389b4fb4a0",
+        "disabled": false,
+        "settings": {}
+      },
+      "14060646107696862457": {
+        "type": "shopify://apps/judge-me-reviews/blocks/judgeme_core/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+        "disabled": false,
+        "settings": {}
+      },
+      "13047258039897440615": {
+        "type": "shopify://apps/judge-me-reviews/blocks/cart_drawer_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+        "disabled": false,
+        "settings": {
+          "widget_type": "review-widget"
+        }
+      }
+    }
+  },
   "presets": [
     {
       "name": "Kitchenware Template",
