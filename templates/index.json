@@ -1,19 +1,52 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "hero": {
-      "type": "hero"
+      "type": "hero",
+      "settings": {
+        "eyebrow": "Hero Eyebrow Placeholder",
+        "headline": "hey its me.",
+        "subtext": "Subheadline placeholder. Add your own value statement here.",
+        "button_label": "Shop the Collection",
+        "button_link": "",
+        "button2_label": "Our Story",
+        "button2_link": ""
+      }
     },
     "featured": {
-      "type": "featured-collection"
+      "type": "featured-collection",
+      "settings": {
+        "heading": "Featured Products",
+        "collection": "",
+        "product_limit": 4
+      }
     },
     "promo": {
-      "type": "promo-banner"
+      "type": "promo-banner",
+      "settings": {
+        "text": "Promotional Banner Placeholder — Add your current offer here"
+      }
     },
     "reviews": {
-      "type": "reviews-placeholder"
+      "type": "reviews-placeholder",
+      "settings": {
+        "heading": "Customer Reviews"
+      }
     },
     "newsletter": {
-      "type": "newsletter"
+      "type": "newsletter",
+      "settings": {
+        "heading": "Newsletter Signup",
+        "text": "Invite placeholder — tell visitors what they get for joining your list."
+      }
     }
   },
   "order": [
