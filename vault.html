@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Vault — B.I.G. Steppas LLC</title>
+<meta name="description" content="Exclusive discount codes for B.I.G. Steppas insiders. Claim yours, keep them in your vault.">
+<style>
+  :root{
+    --bg:#242321; --bg2:#1b1a18; --panel:#2e2c29; --panel2:#35322e;
+    --ink:#f7f4ed; --muted:#b8b0a0; --gold:#b69a5a; --gold-hi:#d9bc7a;
+    --coral:#ff6f61; --red:#e5484d; --line:rgba(182,154,90,.28);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;min-height:100vh;overflow-x:hidden}
+  /* ambient animated background */
+  .glow{position:fixed;inset:0;pointer-events:none;z-index:0;background:
+    radial-gradient(600px 300px at 15% -5%,rgba(182,154,90,.16),transparent 60%),
+    radial-gradient(700px 340px at 90% 0%,rgba(182,154,90,.10),transparent 60%),
+    radial-gradient(900px 500px at 50% 115%,rgba(255,111,97,.05),transparent 60%);
+    animation:glowPulse 9s ease-in-out infinite alternate}
+  @keyframes glowPulse{from{opacity:.75}to{opacity:1}}
+  .snow{position:fixed;inset:0;pointer-events:none;z-index:1;overflow:hidden}
+  .snow span{position:absolute;top:-4vh;color:#fff;opacity:.5;animation:fall linear infinite}
+  @keyframes fall{to{transform:translateY(110vh)}}
+  .wrap{position:relative;z-index:2;max-width:1060px;margin:0 auto;padding:2.2rem 1.1rem 3rem}
+  /* entrance */
+  .rise{opacity:0;transform:translateY(22px);animation:rise .8s cubic-bezier(.2,.7,.2,1) forwards}
+  @keyframes rise{to{opacity:1;transform:none}}
+  .d1{animation-delay:.05s}.d2{animation-delay:.18s}.d3{animation-delay:.32s}.d4{animation-delay:.48s}.d5{animation-delay:.64s}.d6{animation-delay:.8s}
+  header{text-align:center;padding:1.2rem 0 .4rem}
+  .crown{font-size:2rem;color:var(--gold);display:inline-block;animation:bob 3.2s ease-in-out infinite;filter:drop-shadow(0 4px 14px rgba(182,154,90,.45))}
+  @keyframes bob{0%,100%{transform:translateY(0) rotate(-2deg)}50%{transform:translateY(-6px) rotate(2deg)}}
+  .brand{font-size:.82rem;letter-spacing:.42em;color:var(--muted);text-transform:uppercase;margin-top:.35rem}
+  h1{font-size:clamp(2.4rem,7vw,4rem);line-height:1.05;margin:.45rem 0 .4rem;font-weight:800;
+     background:linear-gradient(100deg,var(--gold-hi) 10%,#fff6df 30%,var(--gold) 55%,var(--gold-hi) 80%);
+     background-size:220% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;
+     animation:shine 5.5s linear infinite}
+  @keyframes shine{to{background-position:-220% 0}}
+  .tag{color:var(--muted);font-size:clamp(.98rem,2.6vw,1.08rem)}
+  .tag strong{color:var(--ink)}
+  /* stats */
+  .stats{display:flex;gap:.7rem;justify-content:center;flex-wrap:wrap;margin:1.6rem 0 .4rem}
+  .stat{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:.8rem 1.15rem;min-width:138px;text-align:center}
+  .stat b{display:block;font-size:1.55rem;color:var(--gold-hi)}
+  .stat small{color:var(--muted);letter-spacing:.14em;text-transform:uppercase;font-size:.66rem}
+  h2.sec{font-size:1.28rem;margin:2.1rem 0 .25rem;display:flex;align-items:center;gap:.55rem}
+  h2.sec .dot{width:9px;height:9px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 0 rgba(182,154,90,.6);animation:ping 2s infinite}
+  @keyframes ping{70%{box-shadow:0 0 0 9px rgba(182,154,90,0)}100%{box-shadow:0 0 0 0 rgba(182,154,90,0)}}
+  .sec-sub{color:var(--muted);font-size:.92rem;margin-bottom:1rem}
+  .grid{display:grid;grid-template-columns:1fr;gap:1rem}
+  @media(min-width:720px){.grid{grid-template-columns:1fr 1fr}}
+  /* code card */
+  .card{position:relative;border-radius:18px;padding:1.25rem 1.25rem 1.15rem;background:linear-gradient(160deg,var(--panel2),var(--panel));border:1px solid var(--line);overflow:hidden;transition:transform .35s cubic-bezier(.2,.7,.2,1),box-shadow .35s}
+  .card:hover{transform:translateY(-5px);box-shadow:0 18px 40px rgba(0,0,0,.45)}
+  .card.live::before{content:'';position:absolute;inset:0;background:linear-gradient(115deg,transparent 30%,rgba(217,188,122,.14) 48%,transparent 62%);background-size:250% 100%;animation:sweep 3.8s ease-in-out infinite;pointer-events:none}
+  @keyframes sweep{0%{background-position:120% 0}55%,100%{background-position:-120% 0}}
+  .pill{display:inline-block;font-size:.68rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:.32rem .6rem;border-radius:999px;background:var(--gold);color:#242321}
+  .pill.locked{background:#4a463f;color:var(--muted)}
+  .pill.claimed{background:#3f5a3a;color:#cfe8c8}
+  .card h3{font-size:1.3rem;margin:.7rem 0 .3rem}
+  .card p{color:var(--muted);font-size:.94rem;line-height:1.45}
+  .codebox{margin:1rem 0 .9rem;border:1.5px dashed rgba(182,154,90,.55);border-radius:12px;padding:.85rem 1rem;display:flex;align-items:center;justify-content:space-between;gap:.8rem;background:rgba(0,0,0,.22)}
+  .code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:1.28rem;font-weight:700;letter-spacing:.12em;color:var(--gold-hi)}
+  .code.hidden-code{color:var(--muted);letter-spacing:.3em}
+  .btn{appearance:none;border:0;cursor:pointer;font:inherit;font-weight:700;border-radius:999px;padding:.72rem 1.35rem;background:linear-gradient(180deg,var(--gold-hi),var(--gold));color:#242321;transition:transform .2s,box-shadow .2s,filter .2s;box-shadow:0 6px 18px rgba(182,154,90,.28)}
+  .btn:hover{transform:translateY(-2px) scale(1.02);box-shadow:0 10px 24px rgba(182,154,90,.4)}
+  .btn:active{transform:scale(.97)}
+  .btn.ghost{background:transparent;color:var(--gold-hi);border:1.5px solid var(--gold);box-shadow:none}
+  .btn.small{padding:.5rem .95rem;font-size:.86rem}
+  .btn[disabled]{opacity:.45;cursor:not-allowed;transform:none}
+  .meta{font-size:.8rem;color:var(--muted)}
+  .meta b{color:var(--coral)}
+  /* locked cards */
+  .card.locked{filter:saturate(.65)}
+  .lock{font-size:1.5rem;display:inline-block;animation:sway 3s ease-in-out infinite;transform-origin:top center}
+  @keyframes sway{0%,100%{transform:rotate(-5deg)}50%{transform:rotate(5deg)}}
+  .blur-code{filter:blur(5px);user-select:none}
+  /* empty state */
+  .empty{border:1.5px dashed rgba(184,176,160,.35);border-radius:18px;padding:1.6rem;text-align:center;color:var(--muted)}
+  .empty .big{font-size:1.7rem;display:block;margin-bottom:.4rem;animation:bob 3.2s ease-in-out infinite}
+  /* signup */
+  .join{margin-top:2.2rem;border-radius:20px;padding:1.7rem 1.3rem;text-align:center;background:linear-gradient(160deg,#33302b,#28261f);border:1px solid var(--line);position:relative;overflow:hidden}
+  .join h2{font-size:1.45rem;margin-bottom:.35rem}
+  .join p{color:var(--muted);font-size:.95rem}
+  .join form{display:flex;gap:.6rem;justify-content:center;flex-wrap:wrap;margin-top:1.1rem}
+  .join input{flex:1 1 260px;max-width:360px;padding:.78rem 1.05rem;border-radius:999px;border:1px solid var(--line);background:rgba(0,0,0,.3);color:var(--ink);font:inherit;outline:none;transition:border-color .2s,box-shadow .2s}
+  .join input:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(182,154,90,.25)}
+  .joined{display:none;font-size:1.05rem;color:#cfe8c8;font-weight:600}
+  footer{margin-top:2.6rem;text-align:center;color:var(--muted);font-size:.85rem;line-height:1.7}
+  footer .big-steppas{color:var(--gold-hi);letter-spacing:.3em;font-size:.72rem;text-transform:uppercase}
+  /* toast */
+  .toast{position:fixed;left:50%;bottom:26px;transform:translate(-50%,80px);background:#111;border:1px solid var(--gold);color:var(--ink);padding:.7rem 1.2rem;border-radius:999px;font-weight:600;z-index:50;transition:transform .45s cubic-bezier(.2,.9,.3,1.2);box-shadow:0 12px 30px rgba(0,0,0,.5)}
+  .toast.show{transform:translate(-50%,0)}
+  /* confetti */
+  .confetti{position:fixed;width:9px;height:14px;z-index:60;pointer-events:none;border-radius:2px}
+  @media (prefers-reduced-motion: reduce){
+    *,*::before,*::after{animation-duration:.001s !important;animation-iteration-count:1 !important;transition-duration:.001s !important}
+    .rise{opacity:1;transform:none}
+  }
+</style>
+</head>
+<body>
+<div class="glow"></div>
+<div class="snow" id="snow" aria-hidden="true"></div>
+<div class="wrap">
+
+  <header class="rise d1">
+    <span class="crown" aria-hidden="true">&#9819;</span>
+    <div class="brand">B.I.G. Steppas LLC</div>
+    <h1>The Vault</h1>
+    <p class="tag">Exclusive discount codes for insiders. <strong>Claim yours. Keep them here.</strong></p>
+  </header>
+
+  <div class="stats rise d2">
+    <div class="stat"><b data-count="1">0</b><small>Live code</small></div>
+    <div class="stat"><b id="claimedCount">0</b><small>In your vault</small></div>
+    <div class="stat"><b>Dec 14</b><small>Sale ends</small></div>
+  </div>
+
+  <h2 class="sec rise d3"><span class="dot"></span>Available to claim</h2>
+  <p class="sec-sub rise d3">One live code right now. Claim it and it moves into your vault below.</p>
+
+  <div class="grid rise d3">
+    <article class="card live" id="card-bigchop8">
+      <span class="pill" id="bigchop8-pill">Live now</span>
+      <h3>The B.I.G. Christmas Chop Sale</h3>
+      <p><strong style="color:var(--ink)">8% off any order $40+</strong> at the B.I.G. Steppas store. Stack it on top of the Christmas Chop Sale prices.</p>
+      <div class="codebox">
+        <span class="code hidden-code" id="bigchop8-code">&#8226;&#8226;&#8226;&#8226;&#8226;&#8226;&#8226;&#8226;</span>
+        <button class="btn small" id="bigchop8-copy" style="display:none">Copy</button>
+      </div>
+      <button class="btn" id="bigchop8-claim">Claim this code</button>
+      <p class="meta" style="margin-top:.7rem">Ends <b>Dec 14, 2026</b> &middot; One per customer</p>
+    </article>
+
+    <article class="card locked">
+      <span class="pill locked">Locked</span>
+      <h3><span class="lock" aria-hidden="true">&#128274;</span> Next Insider Drop</h3>
+      <p>A fresh members-only code drops here next. Insiders see it first &mdash; before it goes anywhere public.</p>
+      <div class="codebox"><span class="code blur-code">VAULT-ONLY</span></div>
+      <button class="btn ghost" disabled>Locked &mdash; stay tuned</button>
+      <p class="meta" style="margin-top:.7rem">Unlocks at the next drop</p>
+    </article>
+
+    <article class="card locked">
+      <span class="pill locked">Locked</span>
+      <h3><span class="lock" aria-hidden="true">&#128274;</span> New Year Vault Code</h3>
+      <p>Reserved for the New Year drop. If it is in your vault, it is yours &mdash; nobody else gets it.</p>
+      <div class="codebox"><span class="code blur-code">NEWYEAR-INSIDER</span></div>
+      <button class="btn ghost" disabled>Locked &mdash; stay tuned</button>
+      <p class="meta" style="margin-top:.7rem">Unlocks New Year</p>
+    </article>
+  </div>
+
+  <h2 class="sec rise d4"><span class="dot"></span>Your claimed codes</h2>
+  <p class="sec-sub rise d4">Everything you have claimed lives here, on this device, ready to copy at checkout.</p>
+  <div id="vaultArea" class="rise d4">
+    <div class="empty" id="vaultEmpty">
+      <span class="big" aria-hidden="true">&#128274;</span>
+      Nothing in your vault yet.<br>Claim the live code above and it lands here.
+    </div>
+    <div class="grid" id="vaultGrid"></div>
+  </div>
+
+  <section class="join rise d5">
+    <h2>Get first access to every drop</h2>
+    <p>Vault codes go to insiders first. Join the list and the next drop finds you.</p>
+    <form id="joinForm">
+      <input type="email" id="joinEmail" placeholder="your@email.com" required autocomplete="email" aria-label="Email address">
+      <button class="btn" type="submit">Join the Vault</button>
+    </form>
+    <p class="joined" id="joinedMsg">&#10003; You are in. Watch your inbox for the next drop.</p>
+  </section>
+
+  <footer class="rise d6">
+    <div class="big-steppas">Bless &middot; Inspire &middot; Grow</div>
+    B.I.G. Steppas LLC &mdash; Kitchen tools with purpose.<br>
+    Codes apply at checkout on the B.I.G. Steppas store.
+  </footer>
+</div>
+
+<div class="toast" id="toast" role="status"></div>
+
+<script>
+(function(){
+  var CLAIM_KEY='bs_vault_claimed_v1', JOIN_KEY='bs_vault_joined_v1';
+  var CODES={
+    'BIGCHOP8':{title:'The B.I.G. Christmas Chop Sale',desc:'8% off any order $40+',ends:'Dec 14, 2026'}
+  };
+  function load(){ try{return JSON.parse(localStorage.getItem(CLAIM_KEY))||[]}catch(e){return[]} }
+  function save(list){ try{localStorage.setItem(CLAIM_KEY,JSON.stringify(list))}catch(e){} }
+  function toast(msg){
+    var t=document.getElementById('toast'); t.textContent=msg; t.classList.add('show');
+    setTimeout(function(){t.classList.remove('show')},2400);
+  }
+  function copyCode(code){
+    function done(){ toast('Copied: '+code); }
+    if(navigator.clipboard&&navigator.clipboard.writeText){ navigator.clipboard.writeText(code).then(done,done); }
+    else{
+      var ta=document.createElement('textarea'); ta.value=code; document.body.appendChild(ta);
+      ta.select(); try{document.execCommand('copy')}catch(e){} document.body.removeChild(ta); done();
+    }
+  }
+  function confetti(x,y){
+    var colors=['#b69a5a','#d9bc7a','#f7f4ed','#ff6f61'];
+    for(var i=0;i<26;i++){
+      var s=document.createElement('span'); s.className='confetti';
+      s.style.background=colors[i%colors.length];
+      s.style.left=x+'px'; s.style.top=y+'px';
+      document.body.appendChild(s);
+      var ang=Math.random()*Math.PI*2, v=90+Math.random()*170;
+      var dx=Math.cos(ang)*v, dy=Math.sin(ang)*v-120;
+      s.animate([
+        {transform:'translate(0,0) rotate(0deg)',opacity:1},
+        {transform:'translate('+dx+'px,'+(dy+260)+'px) rotate('+(Math.random()*540-270)+'deg)',opacity:0}
+      ],{duration:950+Math.random()*500,easing:'cubic-bezier(.2,.7,.3,1)'}).onfinish=(function(el){return function(){el.remove()}})(s);
+    }
+  }
+  function render(){
+    var claimed=load();
+    document.getElementById('claimedCount').textContent=claimed.length;
+    var grid=document.getElementById('vaultGrid'), empty=document.getElementById('vaultEmpty');
+    grid.innerHTML='';
+    empty.style.display=claimed.length?'none':'block';
+    claimed.forEach(function(item){
+      var info=CODES[item.code]||{title:item.code,desc:'',ends:''};
+      var card=document.createElement('article'); card.className='card';
+      card.innerHTML='<span class="pill claimed">In your vault</span>'+
+        '<h3>'+info.title+'</h3><p>'+info.desc+'</p>'+
+        '<div class="codebox"><span class="code">'+item.code+'</span>'+
+        '<button class="btn small" type="button">Copy</button></div>'+
+        '<p class="meta">Claimed '+item.date+(info.ends?' &middot; Ends <b>'+info.ends+'</b>':'')+'</p>';
+      card.querySelector('button').addEventListener('click',function(){copyCode(item.code)});
+      grid.appendChild(card);
+    });
+    var isClaimed=claimed.some(function(i){return i.code==='BIGCHOP8'});
+    var claimBtn=document.getElementById('bigchop8-claim');
+    var codeEl=document.getElementById('bigchop8-code');
+    var copyBtn=document.getElementById('bigchop8-copy');
+    var pill=document.getElementById('bigchop8-pill');
+    if(isClaimed){
+      claimBtn.textContent='Claimed — it is in your vault'; claimBtn.disabled=true;
+      codeEl.textContent='BIGCHOP8'; codeEl.classList.remove('hidden-code');
+      copyBtn.style.display='inline-block'; pill.textContent='Claimed'; pill.className='pill claimed';
+    }
+  }
+  document.getElementById('bigchop8-copy').addEventListener('click',function(){copyCode('BIGCHOP8')});
+  document.getElementById('bigchop8-claim').addEventListener('click',function(e){
+    var claimed=load();
+    if(claimed.some(function(i){return i.code==='BIGCHOP8'})) return;
+    var now=new Date();
+    var dateStr=now.toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'});
+    claimed.push({code:'BIGCHOP8',date:dateStr});
+    save(claimed); render();
+    var r=e.currentTarget.getBoundingClientRect();
+    confetti(r.left+r.width/2, r.top+r.height/2);
+    toast('BIGCHOP8 claimed — saved to your vault');
+    document.getElementById('vaultArea').scrollIntoView({behavior:'smooth',block:'center'});
+  });
+  /* animated counters */
+  document.querySelectorAll('[data-count]').forEach(function(el){
+    var target=parseInt(el.getAttribute('data-count'),10), start=null;
+    function step(ts){ if(!start)start=ts; var p=Math.min((ts-start)/900,1);
+      el.textContent=Math.round(target*(0.2+0.8*p)); if(p<1)requestAnimationFrame(step); }
+    requestAnimationFrame(step);
+  });
+  /* gentle snow */
+  var snow=document.getElementById('snow');
+  for(var i=0;i<26;i++){
+    var f=document.createElement('span'); f.textContent='\u2744';
+    f.style.left=(Math.random()*100)+'vw';
+    f.style.fontSize=(7+Math.random()*9)+'px';
+    f.style.animationDuration=(9+Math.random()*14)+'s';
+    f.style.animationDelay=(-Math.random()*16)+'s';
+    snow.appendChild(f);
+  }
+  /* join form (front-end — saves on this device) */
+  var form=document.getElementById('joinForm'), joined=document.getElementById('joinedMsg');
+  try{ if(localStorage.getItem(JOIN_KEY)){ form.style.display='none'; joined.style.display='block'; } }catch(e){}
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    var email=document.getElementById('joinEmail').value.trim();
+    if(!email) return;
+    try{ localStorage.setItem(JOIN_KEY,email); }catch(err){}
+    form.style.display='none'; joined.style.display='block';
+    var r=form.getBoundingClientRect(); confetti(r.left+r.width/2, r.top);
+    toast('Welcome to the Vault');
+  });
+  render();
+})();
+</script>
+</body>
+</html>
