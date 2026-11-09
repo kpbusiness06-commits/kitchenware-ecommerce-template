@@ -74,6 +74,8 @@
   .meta b{color:var(--coral)}
   /* locked cards */
   .card.locked{filter:saturate(.65)}
+  .card.member.unlocked{filter:none;border-color:var(--gold);animation:unlockPop .6s cubic-bezier(.2,.9,.3,1.3)}
+  @keyframes unlockPop{0%{transform:scale(.97)}60%{transform:scale(1.02)}100%{transform:scale(1)}}
   .lock{font-size:1.5rem;display:inline-block;animation:sway 3s ease-in-out infinite;transform-origin:top center}
   @keyframes sway{0%,100%{transform:rotate(-5deg)}50%{transform:rotate(5deg)}}
   .blur-code{filter:blur(5px);user-select:none}
@@ -119,8 +121,8 @@
     <div class="stat"><b>Dec 14</b><small>Sale ends</small></div>
   </div>
 
-  <h2 class="sec rise d3"><span class="dot"></span>Available to claim</h2>
-  <p class="sec-sub rise d3">One live code right now. Claim it and it moves into your vault below.</p>
+  <h2 class="sec rise d3"><span class="dot"></span>For everyone &mdash; no signup needed</h2>
+  <p class="sec-sub rise d3">One live code, open to everybody. Claim it and it moves into your vault below.</p>
 
   <div class="grid rise d3">
     <article class="card live" id="card-bigchop8">
@@ -135,22 +137,37 @@
       <p class="meta" style="margin-top:.7rem">Ends <b>Dec 14, 2026</b> &middot; One per customer</p>
     </article>
 
-    <article class="card locked">
-      <span class="pill locked">Locked</span>
-      <h3><span class="lock" aria-hidden="true">&#128274;</span> Next Insider Drop</h3>
-      <p>A fresh members-only code drops here next. Insiders see it first &mdash; before it goes anywhere public.</p>
-      <div class="codebox"><span class="code blur-code">VAULT-ONLY</span></div>
-      <button class="btn ghost" disabled>Locked &mdash; stay tuned</button>
-      <p class="meta" style="margin-top:.7rem">Unlocks at the next drop</p>
+  </div>
+
+  <h2 class="sec rise d4"><span class="dot"></span>Members only &mdash; signed-up customers</h2>
+  <p class="sec-sub rise d4">Three more offers sit behind the signup. Join the Vault below and this tier unlocks &mdash; the codes land here and in your inbox at the next member drop.</p>
+
+  <div class="grid rise d4">
+    <article class="card locked member">
+      <span class="pill locked member-pill">Members only</span>
+      <h3><span class="lock" aria-hidden="true">&#128274;</span> Buy 2, Get the 3rd FREE</h3>
+      <p>Mix and match any choppers &mdash; the cheapest one is on us. The set-completer, reserved for members.</p>
+      <div class="codebox"><span class="code hidden-code">&#8226;&#8226;&#8226;&#8226;&#8226;&#8226;&#8226;&#8226;</span></div>
+      <button class="btn ghost member-btn" disabled>Locked &mdash; join to unlock</button>
+      <p class="meta" style="margin-top:.7rem">Unlocks at the next member drop</p>
     </article>
 
-    <article class="card locked">
-      <span class="pill locked">Locked</span>
-      <h3><span class="lock" aria-hidden="true">&#128274;</span> New Year Vault Code</h3>
-      <p>Reserved for the New Year drop. If it is in your vault, it is yours &mdash; nobody else gets it.</p>
-      <div class="codebox"><span class="code blur-code">NEWYEAR-INSIDER</span></div>
-      <button class="btn ghost" disabled>Locked &mdash; stay tuned</button>
-      <p class="meta" style="margin-top:.7rem">Unlocks New Year</p>
+    <article class="card locked member">
+      <span class="pill locked member-pill">Members only</span>
+      <h3><span class="lock" aria-hidden="true">&#128274;</span> $10 Off Orders $50+</h3>
+      <p>Real money off the mid-size cart &mdash; two choppers deep and this one pays. Members only.</p>
+      <div class="codebox"><span class="code hidden-code">&#8226;&#8226;&#8226;&#8226;&#8226;&#8226;&#8226;&#8226;</span></div>
+      <button class="btn ghost member-btn" disabled>Locked &mdash; join to unlock</button>
+      <p class="meta" style="margin-top:.7rem">Unlocks at the next member drop</p>
+    </article>
+
+    <article class="card locked member">
+      <span class="pill locked member-pill">Members only</span>
+      <h3><span class="lock" aria-hidden="true">&#128274;</span> Free Shipping at $40+</h3>
+      <p>Members ship free at $40. Everybody else needs $70 &mdash; that gap is the membership working.</p>
+      <div class="codebox"><span class="code hidden-code">&#8226;&#8226;&#8226;&#8226;&#8226;&#8226;&#8226;&#8226;</span></div>
+      <button class="btn ghost member-btn" disabled>Locked &mdash; join to unlock</button>
+      <p class="meta" style="margin-top:.7rem">Unlocks at the next member drop</p>
     </article>
   </div>
 
@@ -166,7 +183,7 @@
 
   <section class="join rise d5">
     <h2>Get first access to every drop</h2>
-    <p>Vault codes go to insiders first. Join the list and the next drop finds you.</p>
+    <p>Join and the three members-only offers above unlock on the spot &mdash; plus first access to every drop.</p>
     <form id="joinForm">
       <input type="email" id="joinEmail" placeholder="your@email.com" required autocomplete="email" aria-label="Email address">
       <button class="btn" type="submit">Join the Vault</button>
@@ -276,17 +293,30 @@
     f.style.animationDelay=(-Math.random()*16)+'s';
     snow.appendChild(f);
   }
+  /* members tier unlock */
+  function unlockMembers(){
+    document.querySelectorAll('.card.member').forEach(function(card){
+      card.classList.remove('locked'); card.classList.add('unlocked');
+      var pill=card.querySelector('.member-pill');
+      if(pill){ pill.textContent='Member — unlocked'; pill.className='pill claimed member-pill'; }
+      var lock=card.querySelector('.lock');
+      if(lock){ lock.textContent='\u{1F513}'; lock.style.animation='none'; }
+      var btn=card.querySelector('.member-btn');
+      if(btn){ btn.textContent='Unlocked — code lands at the next drop'; }
+    });
+  }
   /* join form (front-end — saves on this device) */
   var form=document.getElementById('joinForm'), joined=document.getElementById('joinedMsg');
-  try{ if(localStorage.getItem(JOIN_KEY)){ form.style.display='none'; joined.style.display='block'; } }catch(e){}
+  try{ if(localStorage.getItem(JOIN_KEY)){ form.style.display='none'; joined.style.display='block'; unlockMembers(); } }catch(e){}
   form.addEventListener('submit',function(e){
     e.preventDefault();
     var email=document.getElementById('joinEmail').value.trim();
     if(!email) return;
     try{ localStorage.setItem(JOIN_KEY,email); }catch(err){}
     form.style.display='none'; joined.style.display='block';
+    unlockMembers();
     var r=form.getBoundingClientRect(); confetti(r.left+r.width/2, r.top);
-    toast('Welcome to the Vault');
+    toast('Welcome to the Vault — members tier unlocked');
   });
   render();
 })();
