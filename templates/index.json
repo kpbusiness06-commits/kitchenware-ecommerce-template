@@ -65,11 +65,12 @@
     "sale": {
       "type": "promo-banner",
       "settings": {
-        "kick": "B.I.G. Steppas",
-        "title": "CHRISTMAS SALE",
-        "text": "Give something meaningful. More deals, all in one place.",
-        "button_label": "Tap to Explore",
-        "button_link": "/collections/best-selling"
+        "pill": "Now through Dec 14",
+        "title": "CHRISTMAS CHOP SALE",
+        "text": "All three choppers on sale \u2014 from $18.84. Extra 8% off orders $40+ with code",
+        "code": "BIGCHOP8",
+        "button_label": "Apply BIGCHOP8 & Shop",
+        "button_link": "/discount/BIGCHOP8"
       }
     },
     "picks": {
