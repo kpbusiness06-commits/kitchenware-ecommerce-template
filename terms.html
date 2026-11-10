@@ -3,77 +3,142 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Terms & Conditions &mdash; Kitchenware Store Template</title>
-<link rel="stylesheet" href="styles.css">
+<title>Terms &amp; Conditions — B.I.G. Steppas LLC</title>
+<meta name="description" content="B.I.G. Steppas LLC terms — the short version, with the full terms being finalized.">
+<style>
+:root{--bg:#242321;--panel:#2e2c29;--panel2:#35322e;--ink:#f7f4ed;--muted:#b8b0a0;--gold:#b69a5a;--gold-hi:#d9bc7a;--coral:#ff6f61;--red:#e5484d;--line:rgba(182,154,90,.28)}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;min-height:100vh}
+.glow{position:fixed;inset:0;pointer-events:none;background:radial-gradient(600px 300px at 15% -5%,rgba(182,154,90,.15),transparent 60%),radial-gradient(700px 340px at 90% 0%,rgba(182,154,90,.09),transparent 60%);animation:pulse 9s ease-in-out infinite alternate}
+@keyframes pulse{from{opacity:.75}to{opacity:1}}
+.wrap{position:relative;max-width:880px;margin:0 auto;padding:2rem 1.1rem 3rem}
+.rise{opacity:0;transform:translateY(22px);animation:rise .8s cubic-bezier(.2,.7,.2,1) forwards}
+@keyframes rise{to{opacity:1;transform:none}}
+.d1{animation-delay:.05s}.d2{animation-delay:.18s}.d3{animation-delay:.32s}.d4{animation-delay:.48s}.d5{animation-delay:.64s}
+a{color:var(--gold-hi)}
+nav{display:flex;gap:.4rem;flex-wrap:wrap;justify-content:center;margin-bottom:1.8rem}
+nav a{color:var(--ink);text-decoration:none;font-weight:600;font-size:.92rem;padding:.5rem .95rem;border-radius:999px;border:1px solid transparent;transition:border-color .2s,background .2s}
+nav a:hover{border-color:var(--line)}
+nav a.here{background:var(--gold);color:#242321}
+.crown{text-align:center;font-size:1.8rem;color:var(--gold);animation:bob 3.2s ease-in-out infinite}
+@keyframes bob{0%,100%{transform:translateY(0) rotate(-2deg)}50%{transform:translateY(-6px) rotate(2deg)}}
+.brand{text-align:center;font-size:.8rem;letter-spacing:.42em;color:var(--muted);text-transform:uppercase;margin-top:.3rem}
+h1{font-size:clamp(2rem,6vw,3.1rem);line-height:1.08;font-weight:800;text-align:center;margin:.45rem 0 .4rem;background:linear-gradient(100deg,var(--gold-hi) 10%,#fff6df 30%,var(--gold) 55%,var(--gold-hi) 80%);background-size:220% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shine 5.5s linear infinite}
+@keyframes shine{to{background-position:-220% 0}}
+.tag{text-align:center;color:var(--muted);margin-bottom:1.7rem}
+.tag strong{color:var(--ink)}
+.card{border-radius:18px;background:linear-gradient(160deg,var(--panel2),var(--panel));border:1px solid var(--line);padding:1.3rem 1.3rem 1.2rem;margin-bottom:1rem}
+.card h2{font-size:1.15rem;margin-bottom:.45rem}
+.card p{color:var(--muted);line-height:1.55;font-size:.97rem}
+.btn{display:inline-block;appearance:none;border:0;cursor:pointer;font:inherit;font-weight:700;border-radius:999px;padding:.8rem 1.5rem;background:linear-gradient(180deg,var(--gold-hi),var(--gold));color:#242321;text-decoration:none;transition:transform .2s,box-shadow .2s;box-shadow:0 6px 18px rgba(182,154,90,.28)}
+.btn:hover{transform:translateY(-2px) scale(1.02)}
+.btn.ghost{background:transparent;color:var(--gold-hi);border:1.5px solid var(--gold);box-shadow:none}
+/* FAQ accordion */
+details.q{border:1px solid var(--line);border-radius:14px;background:linear-gradient(160deg,var(--panel2),var(--panel));margin-bottom:.7rem;overflow:hidden}
+details.q summary{cursor:pointer;list-style:none;padding:1rem 2.6rem 1rem 1.15rem;font-weight:700;position:relative;transition:color .2s}
+details.q summary::-webkit-details-marker{display:none}
+details.q summary:hover{color:var(--gold-hi)}
+details.q summary::after{content:'';position:absolute;right:1.15rem;top:50%;width:12px;height:12px;border-right:3px solid var(--gold);border-bottom:3px solid var(--gold);transform:translateY(-70%) rotate(45deg);transition:transform .35s}
+details.q[open ] summary::after{transform:translateY(-30%) rotate(225deg)}
+details.q .a{padding:0 1.15rem 1.1rem;color:var(--muted);line-height:1.6;font-size:.96rem;animation:fadeSlide .45s cubic-bezier(.2,.7,.2,1)}
+@keyframes fadeSlide{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
+details.q .a strong{color:var(--ink)}
+/* forms */
+form{display:grid;gap:.85rem}
+label{font-size:.82rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:.35rem}
+input,select,textarea{width:100%;padding:.78rem 1rem;border-radius:12px;border:1px solid var(--line);background:rgba(0,0,0,.3);color:var(--ink);font:inherit;outline:none;transition:border-color .2s,box-shadow .2s;-webkit-appearance:none;appearance:none}
+input:focus,select:focus,textarea:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(182,154,90,.25)}
+textarea{min-height:110px;resize:vertical}
+.two{display:grid;grid-template-columns:1fr;gap:.85rem}
+@media(min-width:640px){.two{grid-template-columns:1fr 1fr}}
+.note{font-size:.85rem;color:var(--muted);text-align:center}
+.done{display:none;text-align:center;padding:1.2rem .5rem .4rem}
+.done .check{font-size:2.2rem;color:#9ec49a;display:block;margin-bottom:.4rem;animation:bob 3s ease-in-out infinite}
+footer{margin-top:2.4rem;text-align:center;color:var(--muted);font-size:.85rem;line-height:1.7}
+footer .bs{color:var(--gold-hi);letter-spacing:.3em;font-size:.72rem;text-transform:uppercase}
+.confetti{position:fixed;width:9px;height:14px;z-index:60;pointer-events:none;border-radius:2px}
+@media (prefers-reduced-motion: reduce){*,*::before,*::after{animation-duration:.001s !important;animation-iteration-count:1 !important;transition-duration:.001s !important}.rise{opacity:1;transform:none}}
+
+.sh-announce{background:#171614;color:#e9e2d2;text-align:center;font-size:.92rem;padding:.6rem 1rem;border-bottom:1px solid rgba(182,154,90,.45)}
+.sh2{position:relative;display:flex;align-items:center;gap:1.5rem;background:#242321;border-bottom:1px solid var(--line);padding:.85rem 1.2rem;z-index:40}
+.sh2-brand{font-weight:800;font-size:1.05rem;color:var(--ink);text-decoration:none;white-space:nowrap;letter-spacing:.02em}
+.sh2-links{display:flex;gap:1.3rem;flex-wrap:wrap}
+.sh2-links a{color:var(--ink);text-decoration:none;font-weight:500;font-size:.95rem;transition:color .2s}
+.sh2-links a:hover{color:var(--gold-hi)}
+.sh2-links a.here{color:var(--gold-hi)}
+.sh2-icons{margin-left:auto;display:flex;gap:1.1rem;align-items:center}
+.sh2-icons a{color:var(--ink);display:flex;text-decoration:none;transition:color .2s,transform .2s}
+.sh2-icons a:hover{color:var(--gold-hi);transform:translateY(-1px)}
+.sh2-icons svg{width:21px;height:21px}
+.sh2-burger{display:none;background:none;border:0;cursor:pointer;padding:.3rem;flex-direction:column;gap:6px}
+.sh2-burger span{display:block;width:22px;height:2px;background:var(--ink);border-radius:2px}
+.sh2-search-mob{display:none;color:var(--ink)}
+.sh2-search-mob svg{width:21px;height:21px}
+@media(max-width:990px){
+  .sh2{gap:.9rem;padding:.8rem 1rem}
+  .sh2-burger{display:flex}
+  .sh2-search-mob{display:flex}
+  .sh2-brand{position:absolute;left:50%;transform:translateX(-50%);font-size:1.22rem}
+  .sh2-links{display:none}
+  .sh2.open .sh2-links{display:flex;position:absolute;top:100%;left:0;right:0;flex-direction:column;gap:0;background:#242321;padding:.5rem 1.2rem 1rem;border-bottom:1px solid var(--line)}
+  .sh2.open .sh2-links a{padding:.6rem 0;border-bottom:1px solid rgba(182,154,90,.14)}
+  .sh2.open .sh2-links a:last-child{border-bottom:0}
+  .sh2-icons{margin-left:auto;gap:.95rem}
+  .sh2-icons .desk-search{display:none}
+}
+
+.sh2-drop{position:relative;display:inline-flex}
+.sh2-menu{position:absolute;top:100%;left:0;min-width:235px;background:#242321;border:1px solid var(--line);border-radius:12px;padding:.5rem;display:none;flex-direction:column;box-shadow:0 18px 40px rgba(0,0,0,.45);z-index:60}
+.sh2-menu a{padding:.55rem .7rem;border-radius:8px;font-size:.93rem;white-space:nowrap}
+.sh2-menu a:hover{background:rgba(182,154,90,.12)}
+.sh2-drop:hover .sh2-menu,.sh2-drop:focus-within .sh2-menu{display:flex}
+@media(max-width:990px){
+  .sh2-drop{flex-direction:column}
+  .sh2-menu{position:static;display:flex;min-width:0;border:0;box-shadow:none;padding:.1rem 0 .5rem .9rem;background:transparent}
+}
+</style>
 </head>
 <body>
-<header class="site-header">
-  <div class="announce">Announcement Placeholder &mdash; Add your store announcement here</div>
-  <div class="header-inner">
-    <button class="icon-btn nav-toggle" aria-label="Open menu" data-nav-toggle>&#9776;</button>
-    <a class="logo" href="index.html" aria-label="Home"><span class="logo-box">LOGO</span><span class="logo-text">Brand Name<br><small>Placeholder</small></span></a>
-    <nav class="main-nav" data-nav>
-      <a href="index.html">Home</a>
-      <a href="shop.html">Shop</a>
-      <a href="about.html">About Us</a>
-      <a href="contact.html">Contact</a>
-      <a href="contact.html">Contact</a>
-    </nav>
-    <div class="header-actions">
-      <button class="icon-btn" aria-label="Search" data-search-open>&#128269;</button>
-      <a class="icon-btn cart-link" href="cart.html" aria-label="Cart">&#128722;<span class="cart-count" data-cart-count>0</span></a>
-    </div>
-  </div>
-  <div class="search-bar" data-search-bar hidden>
-    <form class="search-form" data-search-form>
-      <input type="search" placeholder="Search placeholder &mdash; try a product or category" aria-label="Search" data-search-input>
-      <button type="submit" class="btn btn-dark">Search</button>
-      <button type="button" class="icon-btn" data-search-close aria-label="Close search">&times;</button>
-    </form>
-    <p class="search-hint" data-search-hint>Search runs on the Shop page grid in this template.</p>
-  </div>
-</header>
-<main>
+<div class="sh-announce">Welcome to our store</div><header class="sh2"><button class="sh2-burger" aria-label="Menu" onclick="this.parentNode.classList.toggle('open')"><span></span><span></span></button><a class="sh2-search-mob" href="products.html" aria-label="Search products"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20.5 20.5 16.6 16.6"/></svg></a><a class="sh2-brand" href="index.html">B.I.G. Steppas LLC</a><div class="sh2-links"><a href="index.html">Home</a><span class="sh2-drop"><a href="products.html">Products</a><span class="sh2-menu"><a href="https://steppasllc.myshopify.com/collections/best-selling">B.I.G.’s Best Sellers</a><a href="https://steppasllc.myshopify.com/collections/utensils-gadgets">Utensils &amp; Gadgets</a><a href="https://steppasllc.myshopify.com/collections/appliances">Appliances</a><a href="https://steppasllc.myshopify.com/collections/bakeware">Bakeware</a><a href="https://steppasllc.myshopify.com/collections/cleaning-storage">Cleaning &amp; Storage</a><a href="https://steppasllc.myshopify.com/collections/cookware">Cookware</a><a href="https://steppasllc.myshopify.com/collections/knives-boards">Knives &amp; Boards</a></span></span><a href="bulk-order.html">B.I.G. New Seller's</a><a href="vault.html">The Vault</a><a href="contact.html">Contact</a><a href="about.html">About Us</a></div><div class="sh2-icons"><a class="desk-search" href="products.html" aria-label="Search products"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20.5 20.5 16.6 16.6"/></svg></a><a href="signin.html" aria-label="Account — sign in or your profile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="8" r="3.6"/><path d="M4.6 20c1.3-3.6 4.1-5.3 7.4-5.3s6.1 1.7 7.4 5.3"/></svg></a><a href="https://vt.tiktok.com/ZTfdCMYuD/?page=TikTokShop" aria-label="Your bag — checkout on TikTok Shop"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 8h14l-1.1 12.1a1.5 1.5 0 0 1-1.5 1.4H7.6a1.5 1.5 0 0 1-1.5-1.4L5 8Z"/><path d="M8.5 10.5V6.8a3.5 3.5 0 0 1 7 0v3.7"/></svg></a></div></header>
+<div class="glow"></div>
+<div class="wrap">
 
-<section class="page-head"><h1>Terms &amp; Conditions</h1></section>
-<section class="prose">
-  <p class="placeholder-text">Terms placeholder. State the terms that govern use of this store here.</p>
-  <p class="placeholder-text">Orders and pricing placeholder. State how orders, pricing, and errors are handled here.</p>
-  <p class="placeholder-text">Liability placeholder. State your liability terms here. Have final legal text reviewed before publishing.</p>
-</section>
+  <div class="crown rise d1" aria-hidden="true">&#9819;</div>
+  <div class="brand rise d1">B.I.G. Steppas LLC</div>
 
-</main>
-<footer class="site-footer">
-  <div class="footer-grid">
-    <div>
-      <span class="logo-box">LOGO</span>
-      <p class="placeholder-text">Short brand statement placeholder. Add your own business description here.</p>
-    </div>
-    <div>
-      <h4>Shop</h4>
-      <a href="shop.html">All Products</a>
-      <a href="shop.html">Category Placeholder A</a>
-      <a href="shop.html">Category Placeholder B</a>
-      <a href="shop.html">Category Placeholder C</a>
-    </div>
-    <div>
-      <h4>Customer Care</h4>
-      <a href="contact.html">Contact</a>
-      <a href="shipping-policy.html">Shipping Policy</a>
-      <a href="returns-policy.html">Return &amp; Refund Policy</a>
-      <a href="contact.html">Contact Us</a>
-    </div>
-    <div>
-      <h4>Legal</h4>
-      <a href="privacy-policy.html">Privacy Policy</a>
-      <a href="terms.html">Terms &amp; Conditions</a>
-    </div>
+  <h1 class="rise d1">Terms &amp; Conditions</h1>
+  <p class="tag rise d2">The short version, <strong>in plain words.</strong></p>
+
+  <div class="card rise d2">
+    <h2>Where things stand</h2>
+    <p>Our full terms are being finalized. The short version, accurate today:</p><p style="margin-top:.6rem">The price at checkout is the price you pay. One discount code per order &mdash; codes don't stack. <strong style="color:var(--ink)">BIGCHOP8</strong> takes 8% off orders $40+ through <strong style="color:var(--ink)">December 14, 2026</strong>.</p><p style="margin-top:.6rem">Shipping and returns work exactly as written on our <a href="shipping-policy.html">Shipping Policy</a> and <a href="returns-policy.html">Returns &amp; Refunds</a> pages.</p>
   </div>
-  <div class="footer-bottom">
-    <span>&copy; <span data-year></span> Business Name Placeholder. All rights reserved.</span>
-    <span class="placeholder-text">Payment icons placeholder</span>
+  <div class="card rise d3">
+    <h2>Questions about any of this?</h2>
+    <p>Email us at <a href="mailto:kpbusiness06@gmail.com"><strong style="color:var(--gold-hi)">kpbusiness06@gmail.com</strong></a> or use the <a href="contact.html">Contact page</a> &mdash; a human answers.</p>
   </div>
-</footer>
-<script src="script.js"></script>
+
+  <footer class="rise d5">
+    <div class="bs">Bless &middot; Inspire &middot; Grow</div>
+    B.I.G. Steppas LLC &mdash; Kitchen tools with purpose.
+  </footer>
+</div>
+<script>
+function bsConfetti(x,y){
+  var colors=['#b69a5a','#d9bc7a','#f7f4ed','#ff6f61'];
+  for(var i=0;i<24;i++){
+    var s=document.createElement('span'); s.className='confetti';
+    s.style.background=colors[i%colors.length];
+    s.style.left=x+'px'; s.style.top=y+'px';
+    document.body.appendChild(s);
+    var ang=Math.random()*Math.PI*2, v=90+Math.random()*160;
+    var dx=Math.cos(ang)*v, dy=Math.sin(ang)*v-110;
+    s.animate([{transform:'translate(0,0) rotate(0deg)',opacity:1},{transform:'translate('+dx+'px,'+(dy+250)+'px) rotate('+(Math.random()*540-270)+'deg)',opacity:0}],{duration:950+Math.random()*450,easing:'cubic-bezier(.2,.7,.3,1)'}).onfinish=(function(el){return function(){el.remove()}})(s);
+  }
+}
+</script>
+</body>
+</html>
+
 </body>
 </html>
