@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "hero": {
@@ -12,11 +21,6 @@
     },
     "tiles": {
       "type": "collection-tiles",
-      "settings": {
-        "heading": "Shop by Collection",
-        "view_all_label": "See All Products",
-        "view_all_link": "/collections/all"
-      },
       "blocks": {
         "t1": {
           "type": "tile",
@@ -60,7 +64,12 @@
         "t2",
         "t3",
         "t4"
-      ]
+      ],
+      "settings": {
+        "heading": "Shop by Collection",
+        "view_all_label": "See All Products",
+        "view_all_link": "/collections/all"
+      }
     },
     "sale": {
       "type": "promo-banner",
@@ -76,7 +85,6 @@
       "type": "featured-collection",
       "settings": {
         "heading": "Top Picks for You",
-        "view_all_label": "See All Deals",
         "collection": "best-selling",
         "product_limit": 4
       }
@@ -94,7 +102,6 @@
     },
     "perks": {
       "type": "perks",
-      "settings": {},
       "blocks": {
         "p1": {
           "type": "perk",
@@ -122,7 +129,8 @@
         "p1",
         "p2",
         "p3"
-      ]
+      ],
+      "settings": {}
     }
   },
   "order": [
