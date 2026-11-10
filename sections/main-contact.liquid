@@ -1,0 +1,33 @@
+<section class="bs-wrap bs-section bs-cf-wrap">
+  <div class="bs-pagehead" style="text-align:center">
+    <div class="bs-eyebrow">B.I.G. Steppas LLC</div>
+    <h1>{{ page.title }}</h1>
+    <p>Questions, orders, returns &mdash; write it in the box below and it lands straight in our inbox. You never leave this page.</p>
+  </div>
+  {% form 'contact' %}
+    {% if form.posted_successfully? %}
+      <div class="bs-cf-done"><strong>Message sent.</strong> Thanks for reaching out &mdash; we reply by email, usually within 1&ndash;2 business days.</div>
+    {% endif %}
+    {% if form.errors %}
+      <div class="bs-cf-err">{{ form.errors | default_errors }}</div>
+    {% endif %}
+    <div class="bs-cf-grid">
+      <div>
+        <label for="cf-name">Your name</label>
+        <input id="cf-name" type="text" name="contact[name]" autocomplete="name" required>
+      </div>
+      <div>
+        <label for="cf-email">Your email</label>
+        <input id="cf-email" type="email" name="contact[email]" autocomplete="email" required>
+      </div>
+    </div>
+    <div>
+      <label for="cf-msg">How can we help?</label>
+      <textarea id="cf-msg" name="contact[body]" rows="7" required placeholder="Tell us what you need help with&hellip;"></textarea>
+    </div>
+    <button class="bs-btn bs-cf-btn" type="submit">Send Message</button>
+  {% endform %}
+</section>
+{% schema %}
+{"name": "Contact form", "settings": [], "presets": [{"name": "Contact form"}]}
+{% endschema %}

@@ -143,37 +143,12 @@ footer .bs{color:var(--gold-hi);letter-spacing:.3em;font-size:.72rem;text-transf
 
   <div class="card rise d4">
     <h2>Send a message</h2>
-    <form id="contactForm">
-      <div class="two">
-        <div><label for="cName">Your name</label><input id="cName" required autocomplete="name"></div>
-        <div><label for="cEmail">Your email</label><input id="cEmail" type="email" required autocomplete="email"></div>
-      </div>
-      <div><label for="cTopic">Topic</label>
-        <select id="cTopic">
-          <option>Order question</option><option>Product question</option>
-          <option>Returns</option><option>Discount codes / the Vault</option><option>Something else</option>
-        </select></div>
-      <div><label for="cMsg">Message</label><textarea id="cMsg" required placeholder="How can we help?"></textarea></div>
-      <button class="btn" type="submit">Send Message</button>
-      <p class="note">Opens your email app with the message ready to send to kpbusiness06@gmail.com.</p>
-    </form>
-    <div class="done" id="contactDone"><span class="check">&#10003;</span><strong>Your email app should be open</strong> &mdash; just hit send there and it lands with us.</div>
+    <p>Use the shop's own message box &mdash; type what you need help with, hit send, and it lands straight in our inbox. You never leave the store.</p>
+    <p style="margin-top:.6rem"><a class="btn" href="https://steppasllc.myshopify.com/pages/contact">Open the Message Box</a></p>
+  </div>
   </div>
 
-<script>
-document.getElementById('contactForm').addEventListener('submit',function(e){
-  e.preventDefault();
-  var name=document.getElementById('cName').value.trim(),
-      email=document.getElementById('cEmail').value.trim(),
-      topic=document.getElementById('cTopic').value,
-      msg=document.getElementById('cMsg').value.trim();
-  var subject=encodeURIComponent('['+topic+'] Message from '+name);
-  var body=encodeURIComponent(msg+'\n\n— '+name+' ('+email+')');
-  window.location.href='mailto:kpbusiness06@gmail.com?subject='+subject+'&body='+body;
-  var done=document.getElementById('contactDone'); done.style.display='block';
-  var r=e.target.getBoundingClientRect(); bsConfetti(r.left+r.width/2, r.top+40);
-});
-</script>
+
 
   <footer class="rise d5">
     <div class="bs">Bless &middot; Inspire &middot; Grow</div>
