@@ -1,5 +1,5 @@
-<section class="bs-hero">
-  <div class="bs-hero-media"{% if section.settings.image %} style="background-image:url('{{ section.settings.image | image_url: width: 1800 }}')"{% endif %}></div>
+<section class="bs-hero"{% if section.settings.image %} style="background-image:url('{{ section.settings.image | image_url: width: 1800 }}')"{% endif %}>
+  <div class="bs-hero-shade"></div>
   <div class="bs-hero-inner">
     {% if section.settings.eyebrow != blank %}<div class="bs-eyebrow">{{ section.settings.eyebrow }}</div>{% endif %}
     <h1>{{ section.settings.headline }}</h1>
