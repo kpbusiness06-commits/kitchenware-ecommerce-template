@@ -12,6 +12,10 @@ body{background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSys
 .glow{position:fixed;inset:0;pointer-events:none;background:radial-gradient(600px 300px at 15% -5%,rgba(182,154,90,.15),transparent 60%),radial-gradient(700px 340px at 90% 0%,rgba(182,154,90,.09),transparent 60%);animation:pulse 9s ease-in-out infinite alternate}
 @keyframes pulse{from{opacity:.75}to{opacity:1}}
 .wrap{position:relative;max-width:1060px;margin:0 auto;padding:2rem 1.1rem 3rem}
+nav{display:flex;gap:.4rem;flex-wrap:wrap;justify-content:center;margin-bottom:1.6rem}
+nav a{color:var(--ink);text-decoration:none;font-weight:600;font-size:.92rem;padding:.5rem .95rem;border-radius:999px;border:1px solid transparent;transition:border-color .2s,background .2s}
+nav a:hover{border-color:var(--line)}
+nav a.here{background:var(--gold);color:#242321}
 .rise{opacity:0;transform:translateY(22px);animation:rise .8s cubic-bezier(.2,.7,.2,1) forwards}
 @keyframes rise{to{opacity:1;transform:none}}
 .d1{animation-delay:.05s}.d2{animation-delay:.18s}.d3{animation-delay:.32s}.d4{animation-delay:.48s}
@@ -59,6 +63,13 @@ footer .bs{color:var(--gold-hi);letter-spacing:.3em;font-size:.72rem;text-transf
 <body>
 <div class="glow"></div>
 <div class="wrap">
+<nav>
+    <a href="products.html" class="here">Products</a>
+    <a href="vault.html">The Vault</a>
+    <a href="faq.html">FAQ</a>
+    <a href="contact.html">Contact</a>
+    <a href="bulk-order.html">Bulk Orders</a>
+  </nav>
 
   <p class="crumb rise d1"><a href="products.html">&larr; All products</a></p>
   <div class="hero">
