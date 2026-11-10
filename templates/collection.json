@@ -2,9 +2,13 @@
   "sections": {
     "main": {
       "type": "main-collection"
+    },
+    "strip": {
+      "type": "collection-strip"
     }
   },
   "order": [
-    "main"
+    "main",
+    "strip"
   ]
 }
