@@ -329,3 +329,18 @@ html,body{overflow-x:clip}
 .bs-cf-btn{justify-self:start;cursor:pointer}
 .bs-cf-done{border:1px solid #B69A5A;border-radius:14px;padding:1rem 1.2rem;margin-top:1.4rem;background:rgba(182,154,90,.12);line-height:1.55}
 .bs-cf-err{border:1px solid #E5484D;border-radius:14px;padding:1rem 1.2rem;margin-top:1.4rem;background:rgba(229,72,77,.1);line-height:1.55}
+
+/* Nav dropdowns (desktop hover; mobile tap-to-expand inside the burger menu) */
+.bs-drop{position:relative;display:inline-flex}
+.bs-menu{position:absolute;top:100%;left:0;min-width:235px;background:#242321;border:1px solid rgba(182,154,90,.28);border-radius:12px;padding:.5rem;display:none;flex-direction:column;box-shadow:0 18px 40px rgba(0,0,0,.45);z-index:70}
+.bs-menu a{padding:.55rem .7rem;border-radius:8px;font-size:.93rem;white-space:nowrap;color:#f7f4ed}
+.bs-menu a:hover{background:rgba(182,154,90,.12);color:#d9bc7a}
+.bs-drop:hover .bs-menu,.bs-drop:focus-within .bs-menu{display:flex}
+@media(max-width:990px){
+  .bs-drop{flex-direction:column}
+  .bs-menu{position:static;display:none;min-width:0;border:0;box-shadow:none;padding:.1rem 0 .5rem .9rem;background:transparent}
+  .bs-drop.open .bs-menu{display:flex}
+  .bs-nav.open .bs-menu a{padding:.55rem .7rem;border-bottom:0}
+  .bs-drop-toggle::after{content:'\u25be';margin-left:.4rem;color:#d9bc7a;display:inline-block;transition:transform .25s}
+  .bs-drop.open .bs-drop-toggle::after{transform:rotate(180deg)}
+}

@@ -6,7 +6,17 @@
     <a class="bs-brand" href="{{ routes.root_url }}">{{ shop.name }}</a>
     <nav class="bs-nav" data-nav>
       {% for link in linklists[section.settings.menu].links %}
-        <a href="{{ link.url }}"{% if link.active %} class="bs-here"{% endif %}>{{ link.title }}</a>
+        {% if link.links.size > 0 %}
+          <span class="bs-drop">
+            <a href="{{ link.url }}" class="bs-drop-toggle{% if link.active %} bs-here{% endif %}">{{ link.title }}</a>
+            <span class="bs-menu">
+              <a href="{{ link.url }}">All {{ link.title }}</a>
+              {% for child in link.links %}<a href="{{ child.url }}"{% if child.active %} class="bs-here"{% endif %}>{{ child.title }}</a>{% endfor %}
+            </span>
+          </span>
+        {% else %}
+          <a href="{{ link.url }}"{% if link.active %} class="bs-here"{% endif %}>{{ link.title }}</a>
+        {% endif %}
       {% else %}
         <a href="{{ routes.root_url }}">Home</a>
         <a href="{{ routes.all_products_collection_url }}">Products</a>

@@ -36,3 +36,15 @@
     });
   });
 })();
+
+/* Dropdown tap-to-expand (mobile menu) */
+(function () {
+  document.querySelectorAll(".bs-drop-toggle").forEach(function (a) {
+    a.addEventListener("click", function (e) {
+      if (window.matchMedia("(max-width: 990px)").matches) {
+        e.preventDefault();
+        a.parentNode.classList.toggle("open");
+      }
+    });
+  });
+})();
