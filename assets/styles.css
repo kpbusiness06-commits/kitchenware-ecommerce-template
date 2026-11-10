@@ -312,3 +312,7 @@ main{max-width:var(--max);margin:0 auto;padding:0 1.25rem 3rem}
 
 .bs-tile.bs-current{border-color:#d9bc7a;pointer-events:none}
 .bs-heretag{position:absolute;top:.6rem;right:.6rem;background:#b69a5a;color:#242321;font-size:.68rem;font-weight:800;letter-spacing:.1em;padding:.25rem .55rem;border-radius:999px;text-transform:uppercase}
+
+/* Hero breaks out of the template's centered main column so the photo touches the screen edges */
+.bs-hero{width:100vw;margin-left:calc(50% - 50vw)}
+html,body{overflow-x:clip}
