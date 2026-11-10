@@ -95,6 +95,14 @@
   /* toast */
   .toast{position:fixed;left:50%;bottom:26px;transform:translate(-50%,80px);background:#111;border:1px solid var(--gold);color:var(--ink);padding:.7rem 1.2rem;border-radius:999px;font-weight:600;z-index:50;transition:transform .45s cubic-bezier(.2,.9,.3,1.2);box-shadow:0 12px 30px rgba(0,0,0,.5)}
   .toast.show{transform:translate(-50%,0)}
+  /* post-copy action sheet */
+  .sheet{position:fixed;left:50%;bottom:18px;transform:translate(-50%,140%);width:min(520px,calc(100vw - 24px));background:#171613;border:1px solid var(--gold);border-radius:18px;padding:1.05rem 1.1rem 1.1rem;z-index:55;transition:transform .5s cubic-bezier(.2,.9,.3,1.15);box-shadow:0 22px 50px rgba(0,0,0,.6);text-align:center}
+  .sheet.show{transform:translate(-50%,0)}
+  .sheet h3{font-size:1.08rem;margin-bottom:.2rem}
+  .sheet h3 .code-inline{color:var(--gold-hi);font-family:ui-monospace,Menlo,Consolas,monospace;letter-spacing:.08em}
+  .sheet p{color:var(--muted);font-size:.88rem;margin-bottom:.85rem}
+  .sheet .row{display:flex;gap:.6rem;justify-content:center;flex-wrap:wrap}
+  .sheet .x{position:absolute;top:.45rem;right:.7rem;background:none;border:0;color:var(--muted);font-size:1.25rem;cursor:pointer;line-height:1;padding:.2rem}
   /* confetti */
   .confetti{position:fixed;width:9px;height:14px;z-index:60;pointer-events:none;border-radius:2px}
   @media (prefers-reduced-motion: reduce){
@@ -198,6 +206,16 @@
   </footer>
 </div>
 
+<div class="sheet" id="sheet" role="dialog" aria-label="Where to next">
+  <button class="x" id="sheetClose" aria-label="Close">&times;</button>
+  <h3><span class="code-inline">BIGCHOP8</span> is yours.</h3>
+  <p>Code copied. Where to?</p>
+  <div class="row">
+    <a class="btn ghost" href="products.html">Continue Shopping</a>
+    <a class="btn" href="https://vt.tiktok.com/ZTfdCMYuD/?page=TikTokShop" target="_blank" rel="noopener">Go to Checkout</a>
+  </div>
+</div>
+
 <div class="toast" id="toast" role="status"></div>
 
 <script>
@@ -212,8 +230,18 @@
     var t=document.getElementById('toast'); t.textContent=msg; t.classList.add('show');
     setTimeout(function(){t.classList.remove('show')},2400);
   }
+  var sheetTimer=null;
+  function showSheet(){
+    var s=document.getElementById('sheet'); if(!s) return;
+    s.classList.add('show');
+    clearTimeout(sheetTimer);
+    sheetTimer=setTimeout(function(){ s.classList.remove('show'); },14000);
+  }
+  document.getElementById('sheetClose').addEventListener('click',function(){
+    document.getElementById('sheet').classList.remove('show');
+  });
   function copyCode(code){
-    function done(){ toast('Copied: '+code); }
+    function done(){ toast('Copied: '+code); showSheet(); }
     if(navigator.clipboard&&navigator.clipboard.writeText){ navigator.clipboard.writeText(code).then(done,done); }
     else{
       var ta=document.createElement('textarea'); ta.value=code; document.body.appendChild(ta);
@@ -274,7 +302,7 @@
     var r=e.currentTarget.getBoundingClientRect();
     confetti(r.left+r.width/2, r.top+r.height/2);
     toast('BIGCHOP8 claimed — saved to your vault');
-    document.getElementById('vaultArea').scrollIntoView({behavior:'smooth',block:'center'});
+    showSheet();
   });
   /* animated counters */
   document.querySelectorAll('[data-count]').forEach(function(el){
