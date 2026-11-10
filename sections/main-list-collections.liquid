@@ -5,6 +5,7 @@
 <div class="bs-wrap bs-section">
   <div class="bs-tiles" style="grid-template-columns:repeat(2,1fr)">
     {% for collection in collections %}
+      {% if collection.handle == 'frontpage' %}{% continue %}{% endif %}
       <a class="bs-tile" href="{{ collection.url }}" style="min-height:180px">
         {% if collection.image %}
           <img src="{{ collection.image | image_url: width: 800 }}" alt="{{ collection.title | escape }}" loading="lazy">
