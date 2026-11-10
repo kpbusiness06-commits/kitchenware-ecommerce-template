@@ -3,164 +3,209 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Home &mdash; Kitchenware Store Template</title>
-<link rel="stylesheet" href="styles.css">
+<title>B.I.G. Steppas LLC — Kitchen Tools With Purpose</title>
+<meta name="description" content="B.I.G. Steppas LLC — everyday finds, bigger possibilities. The Christmas Chop Sale is live through Dec 14, 2026.">
+<style>
+:root{--bg:#242321;--panel:#2e2c29;--panel2:#35322e;--ink:#f7f4ed;--muted:#b8b0a0;--gold:#b69a5a;--gold-hi:#d9bc7a;--coral:#ff6f61;--red:#e5484d;--line:rgba(182,154,90,.28)}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;min-height:100vh}
+.glow{position:fixed;inset:0;pointer-events:none;background:radial-gradient(600px 300px at 15% -5%,rgba(182,154,90,.15),transparent 60%),radial-gradient(700px 340px at 90% 0%,rgba(182,154,90,.09),transparent 60%);animation:pulse 9s ease-in-out infinite alternate}
+@keyframes pulse{from{opacity:.75}to{opacity:1}}
+.wrap{position:relative;max-width:1060px;margin:0 auto;padding:0 1.1rem 3rem}
+.rise{opacity:0;transform:translateY(22px);animation:rise .8s cubic-bezier(.2,.7,.2,1) forwards}
+@keyframes rise{to{opacity:1;transform:none}}
+.d1{animation-delay:.05s}.d2{animation-delay:.18s}.d3{animation-delay:.32s}.d4{animation-delay:.48s}.d5{animation-delay:.64s}.d6{animation-delay:.8s}
+a{color:var(--gold-hi)}
+.announce{background:linear-gradient(90deg,#1b1a18,#2e2c29,#1b1a18);border-bottom:1px solid var(--line);text-align:center;font-size:.82rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);padding:.55rem 1rem}
+.announce strong{color:var(--gold-hi)}
+nav{display:flex;gap:.4rem;flex-wrap:wrap;justify-content:center;padding:1.1rem 0 .4rem}
+nav a{color:var(--ink);text-decoration:none;font-weight:600;font-size:.92rem;padding:.5rem .95rem;border-radius:999px;border:1px solid transparent;transition:border-color .2s,background .2s}
+nav a:hover{border-color:var(--line)}
+nav a.here{background:var(--gold);color:#242321}
+.btn{display:inline-block;appearance:none;border:0;cursor:pointer;font:inherit;font-weight:700;border-radius:999px;padding:.85rem 1.7rem;background:linear-gradient(180deg,var(--gold-hi),var(--gold));color:#242321;text-decoration:none;transition:transform .2s,box-shadow .2s;box-shadow:0 6px 18px rgba(182,154,90,.28)}
+.btn:hover{transform:translateY(-2px) scale(1.02)}
+.btn.ghost{background:rgba(36,35,33,.55);color:var(--gold-hi);border:1.5px solid var(--gold);box-shadow:none}
+/* hero */
+.hero{position:relative;border-radius:20px;overflow:hidden;border:1px solid var(--line);margin-top:1.2rem;min-height:420px;display:flex;align-items:flex-end}
+.hero img.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.5}
+.hero .shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(36,35,33,.25) 0%,rgba(36,35,33,.55) 55%,rgba(36,35,33,.93) 100%)}
+.hero .inner{position:relative;padding:2rem 1.6rem 2.2rem;max-width:640px}
+.hero .eyebrow{font-size:.78rem;letter-spacing:.42em;color:var(--gold-hi);text-transform:uppercase;margin-bottom:.6rem}
+.hero h1{font-size:clamp(2.1rem,6vw,3.4rem);line-height:1.06;font-weight:800;margin-bottom:.7rem}
+.hero p{color:#e9e2d2;line-height:1.55;margin-bottom:1.3rem;max-width:480px}
+/* sections */
+section{margin-top:2.6rem}
+.sec-head{display:flex;align-items:baseline;justify-content:space-between;gap:1rem;margin-bottom:1.1rem}
+.sec-head h2{font-size:clamp(1.4rem,3.6vw,1.9rem);font-weight:800}
+.sec-head a{font-weight:700;text-decoration:none;white-space:nowrap}
+.sec-head a:hover{text-decoration:underline}
+/* collection tiles */
+.tiles{display:grid;grid-template-columns:repeat(2,1fr);gap:.9rem}
+@media(min-width:760px){.tiles{grid-template-columns:repeat(4,1fr)}}
+.tile{position:relative;border-radius:16px;overflow:hidden;border:1px solid var(--line);background:linear-gradient(160deg,var(--panel2),var(--panel));min-height:150px;display:flex;align-items:flex-end;text-decoration:none;transition:transform .25s,border-color .25s}
+.tile:hover{transform:translateY(-4px);border-color:var(--gold)}
+.tile img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.55}
+.tile .soon{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-weight:800;letter-spacing:.24em;font-size:.85rem;color:var(--gold-hi);text-transform:uppercase}
+.tile span.lbl{position:relative;background:rgba(27,26,24,.85);color:var(--ink);font-weight:700;font-size:.9rem;padding:.45rem .8rem;border-radius:0 10px 0 0}
+/* sale banner */
+.banner{position:relative;border-radius:20px;border:1px solid var(--line);overflow:hidden;text-align:center;padding:2.6rem 1.4rem;background:radial-gradient(700px 260px at 50% -10%,rgba(182,154,90,.22),transparent 65%),linear-gradient(160deg,#322e29,#242321)}
+.banner .kick{font-size:.8rem;letter-spacing:.42em;color:var(--gold-hi);text-transform:uppercase}
+.banner h2{font-size:clamp(2rem,6vw,3.2rem);font-weight:800;letter-spacing:.04em;margin:.5rem 0 .5rem;background:linear-gradient(100deg,var(--gold-hi) 10%,#fff6df 30%,var(--gold) 55%,var(--gold-hi) 80%);background-size:220% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shine 5.5s linear infinite}
+@keyframes shine{to{background-position:-220% 0}}
+.banner p{color:var(--muted);font-size:1.05rem;line-height:1.55;margin-bottom:1.4rem}
+.banner p strong{color:var(--ink)}
+/* product cards */
+.grid{display:grid;grid-template-columns:1fr;gap:1.1rem}
+@media(min-width:640px){.grid{grid-template-columns:repeat(3,1fr)}}
+.card{border-radius:18px;background:linear-gradient(160deg,var(--panel2),var(--panel));border:1px solid var(--line);overflow:hidden;text-decoration:none;color:var(--ink);display:flex;flex-direction:column;transition:transform .25s,border-color .25s,box-shadow .25s}
+.card:hover{transform:translateY(-5px);border-color:var(--gold);box-shadow:0 14px 30px rgba(0,0,0,.4)}
+.card .ph{position:relative;aspect-ratio:4/3;background:#1b1a18}
+.card .ph img{width:100%;height:100%;object-fit:cover;display:block}
+.badge{position:absolute;top:.7rem;left:.7rem;background:var(--red);color:#fff;font-weight:800;font-size:.8rem;padding:.28rem .6rem;border-radius:999px}
+.card .bd{padding:1rem 1.1rem 1.2rem;display:flex;flex-direction:column;gap:.35rem;flex:1}
+.card h3{font-size:1.05rem;line-height:1.3}
+.card .sub{color:var(--muted);font-size:.9rem;line-height:1.45;flex:1}
+.price{margin-top:.4rem;font-size:1.25rem;font-weight:800;color:var(--coral)}
+.price s{color:var(--muted);font-weight:500;font-size:.95rem;margin-left:.45rem}
+.price .save{color:#9ec49a;font-size:.82rem;font-weight:700;margin-left:.5rem}
+/* chop banner */
+.chop{position:relative}
+.chop .pill{display:inline-block;background:var(--gold);color:#242321;font-weight:800;font-size:.8rem;letter-spacing:.14em;padding:.45rem 1rem;border-radius:999px;text-transform:uppercase;margin-bottom:1.2rem}
+.chop .code{display:inline-block;border:1.5px dashed var(--gold);border-radius:10px;padding:.15rem .6rem;color:var(--gold-hi);font-weight:800;letter-spacing:.08em}
+.snow{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+.snow i{position:absolute;top:-12px;border-radius:50%;background:#fff;opacity:.75;animation:fall linear infinite}
+@keyframes fall{to{transform:translateY(560px)}}
+/* perks */
+.perks{display:grid;grid-template-columns:1fr;gap:.9rem}
+@media(min-width:760px){.perks{grid-template-columns:repeat(3,1fr)}}
+.perk{border:1px solid var(--line);border-radius:14px;padding:1rem 1.1rem;background:rgba(0,0,0,.18)}
+.perk strong{display:block;color:var(--gold-hi);margin-bottom:.25rem}
+.perk span{color:var(--muted);font-size:.92rem;line-height:1.5}
+/* footer */
+footer{margin-top:3rem;border-top:1px solid var(--line);padding-top:1.8rem}
+.fgrid{display:grid;grid-template-columns:1fr;gap:1.4rem}
+@media(min-width:760px){.fgrid{grid-template-columns:2fr 1fr 1fr 1fr}}
+footer h4{font-size:.82rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold-hi);margin-bottom:.6rem}
+footer a{display:block;color:var(--muted);text-decoration:none;padding:.22rem 0;font-size:.95rem}
+footer a:hover{color:var(--ink)}
+footer .fbrand{font-weight:800;letter-spacing:.18em;color:var(--ink);margin-bottom:.4rem}
+footer .fstate{color:var(--muted);line-height:1.55;max-width:300px}
+.copy{margin-top:1.8rem;text-align:center;color:var(--muted);font-size:.85rem}
+.copy .bs{color:var(--gold-hi);letter-spacing:.3em;font-size:.72rem;text-transform:uppercase;display:block;margin-bottom:.3rem}
+@media (prefers-reduced-motion: reduce){*,*::before,*::after{animation-duration:.001s !important;animation-iteration-count:1 !important;transition-duration:.001s !important}.rise{opacity:1;transform:none}}
+</style>
 </head>
 <body>
-<header class="site-header">
-  <div class="announce">Announcement Placeholder &mdash; Add your store announcement here</div>
-  <div class="header-inner">
-    <button class="icon-btn nav-toggle" aria-label="Open menu" data-nav-toggle>&#9776;</button>
-    <a class="logo" href="index.html" aria-label="Home"><span class="logo-box">LOGO</span><span class="logo-text">Brand Name<br><small>Placeholder</small></span></a>
-    <nav class="main-nav" data-nav>
-      <a href="index.html">Home</a>
-      <a href="shop.html">Shop</a>
-      <a href="about.html">About Us</a>
-      <a href="faq.html">FAQ</a>
-      <a href="contact.html">Contact</a>
-    </nav>
-    <div class="header-actions">
-      <button class="icon-btn" aria-label="Search" data-search-open>&#128269;</button>
-      <a class="icon-btn cart-link" href="cart.html" aria-label="Cart">&#128722;<span class="cart-count" data-cart-count>0</span></a>
+<div class="glow"></div>
+<div class="announce rise d1">Welcome to our store &mdash; <strong>The Christmas Chop Sale is live through Dec 14</strong></div>
+<div class="wrap">
+
+  <nav class="rise d1">
+    <a href="index.html" class="here">Home</a>
+    <a href="products.html">Products</a>
+    <a href="vault.html">The Vault</a>
+    <a href="faq.html">FAQ</a>
+    <a href="contact.html">Contact</a>
+    <a href="bulk-order.html">Bulk Orders</a>
+  </nav>
+
+  <div class="hero rise d2">
+    <img class="bg" src="https://cdn.shopify.com/s/files/1/0791/5218/5423/files/b2b09b92-3676-4466-ab59-191b03ac51d1_tplv-fhlh96nyum-origin-jpeg.jpg?v=1793297424" alt="13-in-1 SliceMaster Pro">
+    <div class="shade"></div>
+    <div class="inner">
+      <div class="eyebrow">B.I.G. Steppas LLC</div>
+      <h1>Everyday finds. Bigger possibilities.</h1>
+      <p>Kitchen tools with purpose. The choppers that do the prep work for you &mdash; built for real kitchens, priced for real people.</p>
+      <a class="btn" href="products.html">Explore the Collection</a>
     </div>
   </div>
-  <div class="search-bar" data-search-bar hidden>
-    <form class="search-form" data-search-form>
-      <input type="search" placeholder="Search placeholder &mdash; try a product or category" aria-label="Search" data-search-input>
-      <button type="submit" class="btn btn-dark">Search</button>
-      <button type="button" class="icon-btn" data-search-close aria-label="Close search">&times;</button>
-    </form>
-    <p class="search-hint" data-search-hint>Search runs on the Shop page grid in this template.</p>
-  </div>
-</header>
-<main>
 
-<section class="hero">
-  <div class="hero-copy">
-    <span class="eyebrow">Hero Eyebrow Placeholder</span>
-    <h1>Headline Placeholder for a Premium Kitchen Store</h1>
-    <p class="placeholder-text">Subheadline placeholder. Add your own value statement here &mdash; quality, craft, and everyday cooking, in your words.</p>
-    <div class="hero-ctas">
-      <a class="btn btn-dark" href="shop.html">Shop the Collection</a>
-      <a class="btn btn-ghost" href="about.html">Our Story</a>
+  <section class="rise d3">
+    <div class="sec-head"><h2>Shop by Collection</h2><a href="products.html">See All Products &rarr;</a></div>
+    <div class="tiles">
+      <a class="tile" href="products.html"><img src="https://cdn.shopify.com/s/files/1/0791/5218/5423/files/8a18e9f0-a0d5-48c0-8933-8690a86c9ce4_6bf585e0-9a45-45b6-9a39-1c8a9ca550c2.jpg?v=1793297419" alt="Best Selling"><span class="lbl">Best Selling</span></a>
+      <a class="tile" href="products.html"><img src="https://cdn.shopify.com/s/files/1/0791/5218/5423/files/9e46d0023ed94784864bd8bb37aee71c_tplv-fhlh96nyum-origin-jpeg.jpg?v=1793297417" alt="Utensils and Gadgets"><span class="lbl">Utensils &amp; Gadgets</span></a>
+      <a class="tile" href="products.html"><span class="soon">Coming Soon</span><span class="lbl">Appliances</span></a>
+      <a class="tile" href="products.html"><span class="soon">Coming Soon</span><span class="lbl">Cleaning &amp; Storage</span></a>
     </div>
-  </div>
-  <div class="hero-media"><span>Hero Image<br>Placeholder</span></div>
-</section>
+  </section>
 
-<section class="section">
-  <div class="section-head"><h2>Shop by Category</h2><a href="shop.html">View all</a></div>
-  <div class="grid grid-4">
-    <a class="tile" href="shop.html"><span>Category Image Placeholder</span><strong>Category Placeholder A</strong></a>
-    <a class="tile" href="shop.html"><span>Category Image Placeholder</span><strong>Category Placeholder B</strong></a>
-    <a class="tile" href="shop.html"><span>Category Image Placeholder</span><strong>Category Placeholder C</strong></a>
-    <a class="tile" href="shop.html"><span>Category Image Placeholder</span><strong>Category Placeholder D</strong></a>
-  </div>
-</section>
+  <section class="banner rise d3">
+    <div class="kick">B.I.G. Steppas</div>
+    <h2>CHRISTMAS SALE</h2>
+    <p>Give something meaningful. <strong>More deals, all in one place.</strong></p>
+    <a class="btn" href="products.html">Tap to Explore &rarr;</a>
+  </section>
 
-<section class="promo"><span>Promotional Banner Placeholder &mdash; Add your current offer here</span></section>
-
-<section class="section">
-  <div class="section-head"><h2>Featured Products</h2><a href="shop.html">Shop all</a></div>
-  <div class="grid grid-4">
-    <article class="card" data-card data-category="Category A" data-name="Product Placeholder 1" data-price="0">
-  <a class="card-media" href="product.html"><span>Product Image<br>Placeholder</span></a>
-  <div class="card-body">
-    <span class="card-cat">Category A Placeholder</span>
-    <h3><a href="product.html">Product Name Placeholder 1</a></h3>
-    <p class="price">$0.00 <small>Price Placeholder</small></p>
-    <button class="btn btn-dark btn-sm" data-add-to-cart data-id="p1" data-label="Product Placeholder 1">Add to Cart</button>
-  </div>
-</article>
-    <article class="card" data-card data-category="Category B" data-name="Product Placeholder 2" data-price="0">
-  <a class="card-media" href="product.html"><span>Product Image<br>Placeholder</span></a>
-  <div class="card-body">
-    <span class="card-cat">Category B Placeholder</span>
-    <h3><a href="product.html">Product Name Placeholder 2</a></h3>
-    <p class="price">$0.00 <small>Price Placeholder</small></p>
-    <button class="btn btn-dark btn-sm" data-add-to-cart data-id="p2" data-label="Product Placeholder 2">Add to Cart</button>
-  </div>
-</article>
-    <article class="card" data-card data-category="Category C" data-name="Product Placeholder 3" data-price="0">
-  <a class="card-media" href="product.html"><span>Product Image<br>Placeholder</span></a>
-  <div class="card-body">
-    <span class="card-cat">Category C Placeholder</span>
-    <h3><a href="product.html">Product Name Placeholder 3</a></h3>
-    <p class="price">$0.00 <small>Price Placeholder</small></p>
-    <button class="btn btn-dark btn-sm" data-add-to-cart data-id="p3" data-label="Product Placeholder 3">Add to Cart</button>
-  </div>
-</article>
-    <article class="card" data-card data-category="Category A" data-name="Product Placeholder 4" data-price="0">
-  <a class="card-media" href="product.html"><span>Product Image<br>Placeholder</span></a>
-  <div class="card-body">
-    <span class="card-cat">Category A Placeholder</span>
-    <h3><a href="product.html">Product Name Placeholder 4</a></h3>
-    <p class="price">$0.00 <small>Price Placeholder</small></p>
-    <button class="btn btn-dark btn-sm" data-add-to-cart data-id="p4" data-label="Product Placeholder 4">Add to Cart</button>
-  </div>
-</article>
-  </div>
-</section>
-
-<section class="section">
-  <div class="section-head"><h2>Featured Collections</h2></div>
-  <div class="grid grid-2">
-    <a class="tile tile-wide" href="shop.html"><span>Collection Image Placeholder</span><strong>Collection Placeholder One</strong></a>
-    <a class="tile tile-wide" href="shop.html"><span>Collection Image Placeholder</span><strong>Collection Placeholder Two</strong></a>
-  </div>
-</section>
-
-<section class="section reviews">
-  <div class="section-head"><h2>Customer Reviews</h2></div>
-  <div class="grid grid-3">
-    <blockquote class="review"><div class="stars">***** <small>Rating Placeholder</small></div><p class="placeholder-text">&ldquo;Review text placeholder. Add a real customer review here.&rdquo;</p><cite>Reviewer Name Placeholder</cite></blockquote>
-    <blockquote class="review"><div class="stars">***** <small>Rating Placeholder</small></div><p class="placeholder-text">&ldquo;Review text placeholder. Add a real customer review here.&rdquo;</p><cite>Reviewer Name Placeholder</cite></blockquote>
-    <blockquote class="review"><div class="stars">***** <small>Rating Placeholder</small></div><p class="placeholder-text">&ldquo;Review text placeholder. Add a real customer review here.&rdquo;</p><cite>Reviewer Name Placeholder</cite></blockquote>
-  </div>
-</section>
-
-<section class="newsletter">
-  <h2>Newsletter Signup</h2>
-  <p class="placeholder-text">Invite placeholder &mdash; tell visitors what they get for joining your list.</p>
-  <form class="newsletter-form" data-newsletter>
-    <input type="email" required placeholder="Email address" aria-label="Email address">
-    <button class="btn btn-dark" type="submit">Sign Up</button>
-  </form>
-  <p class="form-note" data-newsletter-note></p>
-</section>
-
-</main>
-<footer class="site-footer">
-  <div class="footer-grid">
-    <div>
-      <span class="logo-box">LOGO</span>
-      <p class="placeholder-text">Short brand statement placeholder. Add your own business description here.</p>
+  <section class="rise d4">
+    <div class="sec-head"><h2>Top Picks for You</h2><a href="products.html">See All Deals &rarr;</a></div>
+    <div class="grid">
+      <a class="card" href="product-14-in-1.html">
+        <div class="ph"><img src="https://cdn.shopify.com/s/files/1/0791/5218/5423/files/9e46d0023ed94784864bd8bb37aee71c_tplv-fhlh96nyum-origin-jpeg.jpg?v=1793297417" alt="14-in-1 Veggie Chopper"><span class="badge">-35%</span></div>
+        <div class="bd"><h3>14-in-1 Veggie Chopper</h3><div class="sub">The most blades in the lineup.</div>
+        <div class="price">$18.84<s>$28.99</s><span class="save">Save $10.15</span></div></div>
+      </a>
+      <a class="card" href="product-16-in-1.html">
+        <div class="ph"><img src="https://cdn.shopify.com/s/files/1/0791/5218/5423/files/8a18e9f0-a0d5-48c0-8933-8690a86c9ce4_6bf585e0-9a45-45b6-9a39-1c8a9ca550c2.jpg?v=1793297419" alt="16-in-1 Vegetable Pro-Series Chopper"><span class="badge">-20%</span></div>
+        <div class="bd"><h3>16-in-1 Vegetable Pro-Series Chopper</h3><div class="sub">The fullest kit.</div>
+        <div class="price">$31.99<s>$39.99</s><span class="save">Save $8.00</span></div></div>
+      </a>
+      <a class="card" href="product-13-in-1.html">
+        <div class="ph"><img src="https://cdn.shopify.com/s/files/1/0791/5218/5423/files/b2b09b92-3676-4466-ab59-191b03ac51d1_tplv-fhlh96nyum-origin-jpeg.jpg?v=1793297424" alt="13-in-1 SliceMaster Pro"><span class="badge">-27%</span></div>
+        <div class="bd"><h3>13-in-1 SliceMaster Pro</h3><div class="sub">The bestseller.</div>
+        <div class="price">$25.63<s>$34.99</s><span class="save">Save $9.36</span></div></div>
+      </a>
     </div>
-    <div>
-      <h4>Shop</h4>
-      <a href="shop.html">All Products</a>
-      <a href="shop.html">Category Placeholder A</a>
-      <a href="shop.html">Category Placeholder B</a>
-      <a href="shop.html">Category Placeholder C</a>
+  </section>
+
+  <section class="banner chop rise d5">
+    <div class="snow" id="snowHome"></div>
+    <div class="pill">Now through Dec 14</div>
+    <h2>CHRISTMAS CHOP SALE</h2>
+    <p>All three choppers on sale &mdash; <strong>from $18.84</strong>.<br>Extra 8% off orders $40+ with code <span class="code">BIGCHOP8</span></p>
+    <a class="btn" href="vault.html">Claim Your Code in the Vault</a>
+  </section>
+
+  <section class="rise d6">
+    <div class="perks">
+      <div class="perk"><strong>Fast US Shipping</strong><span>Standard $8, FREE on orders $70+. Express $15. Delivery in 3&ndash;5 business days, anywhere in the US.</span></div>
+      <div class="perk"><strong>30-Day Returns</strong><span>Used items accepted. Defective, damaged, or wrong &mdash; we make it whole.</span></div>
+      <div class="perk"><strong>The Vault</strong><span>One code for everybody, three more for members. <a href="vault.html">Open the Vault &rarr;</a></span></div>
     </div>
-    <div>
-      <h4>Customer Care</h4>
-      <a href="faq.html">FAQ</a>
-      <a href="shipping-policy.html">Shipping Policy</a>
-      <a href="returns-policy.html">Return &amp; Refund Policy</a>
-      <a href="contact.html">Contact Us</a>
+  </section>
+
+  <footer class="rise d6">
+    <div class="fgrid">
+      <div>
+        <div class="fbrand">B.I.G. STEPPAS LLC</div>
+        <div class="fstate">Kitchen tools with purpose.<br>Bless. Inspire. Grow.</div>
+      </div>
+      <div>
+        <h4>Shop</h4>
+        <a href="products.html">All Products</a>
+        <a href="products.html">Best Selling</a>
+        <a href="vault.html">The Vault</a>
+        <a href="bulk-order.html">Bulk Orders</a>
+      </div>
+      <div>
+        <h4>Customer Care</h4>
+        <a href="faq.html">FAQ</a>
+        <a href="shipping-policy.html">Shipping Policy</a>
+        <a href="returns-policy.html">Return &amp; Refund Policy</a>
+        <a href="contact.html">Contact Us</a>
+      </div>
+      <div>
+        <h4>Legal</h4>
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <a href="terms.html">Terms &amp; Conditions</a>
+      </div>
     </div>
-    <div>
-      <h4>Legal</h4>
-      <a href="privacy-policy.html">Privacy Policy</a>
-      <a href="terms.html">Terms &amp; Conditions</a>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <span>&copy; <span data-year></span> Business Name Placeholder. All rights reserved.</span>
-    <span class="placeholder-text">Payment icons placeholder</span>
-  </div>
-</footer>
-<script src="script.js"></script>
+    <div class="copy"><span class="bs">Bless &middot; Inspire &middot; Grow</span>&copy; 2026 B.I.G. Steppas LLC. All rights reserved.</div>
+  </footer>
+
+</div>
+<script>
+(function(){var s=document.getElementById('snowHome');if(!s||window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;for(var i=0;i<26;i++){var f=document.createElement('i');var sz=2+Math.random()*4;f.style.width=sz+'px';f.style.height=sz+'px';f.style.left=(Math.random()*100)+'%';f.style.animationDuration=(5+Math.random()*6)+'s';f.style.animationDelay=(-Math.random()*8)+'s';f.style.opacity=(0.25+Math.random()*0.5);s.appendChild(f);}})();
+</script>
 </body>
 </html>
