@@ -114,26 +114,42 @@
     .rise{opacity:1;transform:none}
   }
 
-.site-head{display:flex;align-items:center;justify-content:space-between;gap:.8rem;flex-wrap:wrap;background:#1b1a18;border:1px solid var(--line);border-radius:14px;padding:.65rem 1rem;margin:0 0 1.5rem}
-.sh-brand{font-weight:800;letter-spacing:.12em;color:var(--ink);text-decoration:none;font-size:.98rem;white-space:nowrap}
-.sh-brand em{font-style:normal;color:var(--gold-hi)}
-.sh-links{display:flex;gap:.25rem;flex-wrap:wrap}
-.sh-links a{color:var(--ink);text-decoration:none;font-weight:600;font-size:.9rem;padding:.45rem .8rem;border-radius:999px;border:1px solid transparent;transition:border-color .2s}
-.sh-links a:hover{border-color:var(--line)}
-.sh-links a.here{background:var(--gold);color:#242321}
-.sh-icons{display:flex;gap:.4rem}
-.sh-icons a{display:flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:50%;border:1px solid var(--line);color:var(--gold-hi);text-decoration:none;transition:border-color .2s,transform .2s}
-.sh-icons a:hover{border-color:var(--gold);transform:translateY(-1px)}
-.sh-icons svg{width:19px;height:19px}
-@media(max-width:680px){.site-head{justify-content:space-between}.sh-links{order:3;width:100%;justify-content:center}}
+.sh-announce{background:#171614;color:#e9e2d2;text-align:center;font-size:.92rem;padding:.6rem 1rem;border-bottom:1px solid rgba(182,154,90,.45)}
+.sh2{position:relative;display:flex;align-items:center;gap:1.5rem;background:#242321;border-bottom:1px solid var(--line);padding:.85rem 1.2rem;z-index:40}
+.sh2-brand{font-weight:800;font-size:1.05rem;color:var(--ink);text-decoration:none;white-space:nowrap;letter-spacing:.02em}
+.sh2-links{display:flex;gap:1.3rem;flex-wrap:wrap}
+.sh2-links a{color:var(--ink);text-decoration:none;font-weight:500;font-size:.95rem;transition:color .2s}
+.sh2-links a:hover{color:var(--gold-hi)}
+.sh2-links a.here{color:var(--gold-hi)}
+.sh2-icons{margin-left:auto;display:flex;gap:1.1rem;align-items:center}
+.sh2-icons a{color:var(--ink);display:flex;text-decoration:none;transition:color .2s,transform .2s}
+.sh2-icons a:hover{color:var(--gold-hi);transform:translateY(-1px)}
+.sh2-icons svg{width:21px;height:21px}
+.sh2-burger{display:none;background:none;border:0;cursor:pointer;padding:.3rem;flex-direction:column;gap:6px}
+.sh2-burger span{display:block;width:22px;height:2px;background:var(--ink);border-radius:2px}
+.sh2-search-mob{display:none;color:var(--ink)}
+.sh2-search-mob svg{width:21px;height:21px}
+@media(max-width:990px){
+  .sh2{gap:.9rem;padding:.8rem 1rem}
+  .sh2-burger{display:flex}
+  .sh2-search-mob{display:flex}
+  .sh2-brand{position:absolute;left:50%;transform:translateX(-50%);font-size:1.22rem}
+  .sh2-links{display:none}
+  .sh2.open .sh2-links{display:flex;position:absolute;top:100%;left:0;right:0;flex-direction:column;gap:0;background:#242321;padding:.5rem 1.2rem 1rem;border-bottom:1px solid var(--line)}
+  .sh2.open .sh2-links a{padding:.6rem 0;border-bottom:1px solid rgba(182,154,90,.14)}
+  .sh2.open .sh2-links a:last-child{border-bottom:0}
+  .sh2-icons{margin-left:auto;gap:.95rem}
+  .sh2-icons .desk-search{display:none}
+}
 </style>
 </head>
 <body>
+<div class="sh-announce">Welcome to our store</div><header class="sh2"><button class="sh2-burger" aria-label="Menu" onclick="this.parentNode.classList.toggle('open')"><span></span><span></span></button><a class="sh2-search-mob" href="products.html" aria-label="Search products"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20.5 20.5 16.6 16.6"/></svg></a><a class="sh2-brand" href="index.html">B.I.G. Steppas LLC</a><nav class="sh2-links"><a href="index.html">Home</a><a href="products.html">Products</a><a href="bulk-order.html">B.I.G. New Seller's</a><a href="vault.html" class="here">The Vault</a><a href="contact.html">Help Or Contact</a><a href="about.html">About Us</a></nav><div class="sh2-icons"><a class="desk-search" href="products.html" aria-label="Search products"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20.5 20.5 16.6 16.6"/></svg></a><a href="vault.html" aria-label="Account — the Vault"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="8" r="3.6"/><path d="M4.6 20c1.3-3.6 4.1-5.3 7.4-5.3s6.1 1.7 7.4 5.3"/></svg></a><a href="https://vt.tiktok.com/ZTfdCMYuD/?page=TikTokShop" aria-label="Your bag — checkout on TikTok Shop"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 8h14l-1.1 12.1a1.5 1.5 0 0 1-1.5 1.4H7.6a1.5 1.5 0 0 1-1.5-1.4L5 8Z"/><path d="M8.5 10.5V6.8a3.5 3.5 0 0 1 7 0v3.7"/></svg></a></div></header>
 <div class="glow"></div>
 <div class="snow" id="snow" aria-hidden="true"></div>
 <div class="wrap">
 
-  <header class="site-head rise d1"><a class="sh-brand" href="index.html"><em>B.I.G.</em> Steppas LLC</a><div class="sh-links"><a href="index.html">Home</a><a href="products.html">Products</a><a href="vault.html" class="here">The Vault</a><a href="faq.html">FAQ</a><a href="contact.html">Contact</a><a href="bulk-order.html">Bulk Orders</a></div><div class="sh-icons"><a href="vault.html" aria-label="Members — the Vault" title="Members — the Vault"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="8" r="3.6"/><path d="M4.6 20c1.3-3.6 4.1-5.3 7.4-5.3s6.1 1.7 7.4 5.3"/></svg></a><a href="https://vt.tiktok.com/ZTfdCMYuD/?page=TikTokShop" aria-label="Shop on TikTok" title="Shop on TikTok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 8h14l-1.1 12.1a1.5 1.5 0 0 1-1.5 1.4H7.6a1.5 1.5 0 0 1-1.5-1.4L5 8Z"/><path d="M8.5 10.5V6.8a3.5 3.5 0 0 1 7 0v3.7"/></svg></a></div></header>
+  
 
   <header class="rise d1">
     <span class="crown" aria-hidden="true">&#9819;</span>
