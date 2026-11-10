@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="{{ request.locale.iso_code }}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ page_title }} — {{ shop.name }}</title>
+{{ content_for_header }}
+<style>
+  body{margin:0;background:#242321;color:#f7f4ed;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;display:flex;align-items:center;justify-content:center;min-height:100vh;padding:1.2rem;box-sizing:border-box}
+  .gc{max-width:520px;width:100%;text-align:center}
+  .brand{font-weight:800;letter-spacing:.14em;color:#f7f4ed}
+  .card{margin:1.4rem 0;border:1px solid rgba(182,154,90,.45);border-radius:20px;padding:2.2rem 1.6rem;background:radial-gradient(600px 220px at 50% -10%,rgba(182,154,90,.22),transparent 65%),linear-gradient(160deg,#35322e,#2e2c29)}
+  .kick{font-size:.78rem;letter-spacing:.42em;color:#d9bc7a;text-transform:uppercase}
+  .amt{font-size:clamp(2.6rem,9vw,3.8rem);font-weight:800;color:#d9bc7a;margin:.5rem 0 .2rem}
+  .code{display:inline-block;border:1.5px dashed #b69a5a;border-radius:10px;padding:.55rem 1.1rem;font-size:1.15rem;font-weight:800;letter-spacing:.14em;color:#f7f4ed;margin-top:1rem}
+  p{color:#b8b0a0;line-height:1.55}
+  .btn{display:inline-block;font-weight:700;border-radius:999px;padding:.85rem 1.8rem;background:linear-gradient(180deg,#d9bc7a,#b69a5a);color:#242321;text-decoration:none;margin-top:1.2rem}
+  .tag{color:#d9bc7a;letter-spacing:.3em;font-size:.75rem;text-transform:uppercase}
+</style>
+</head>
+<body>
+  <main class="gc">
+    <div class="brand">{{ shop.name }}</div>
+    <div class="card">
+      <div class="kick">Gift Card</div>
+      <div class="amt">{{ gift_card.balance | money }}</div>
+      {% if gift_card.expires_on %}<p>Expires {{ gift_card.expires_on | date: '%B %d, %Y' }}</p>{% endif %}
+      <div><span class="code">{{ gift_card.code | format_code }}</span></div>
+      <p>Enter this code at checkout to pay with your gift card. Whatever you do not spend stays on the card for next time.</p>
+      <a class="btn" href="{{ shop.url }}">Start Shopping</a>
+    </div>
+    <div class="tag">Bless. Inspire. Grow.</div>
+  </main>
+</body>
+</html>

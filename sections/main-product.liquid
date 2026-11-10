@@ -1,29 +1,36 @@
-<section class="product-layout">
-  <div class="gallery">
-    <div class="gallery-main">
+<section class="bs-pl">
+  <div>
+    <div class="bs-gal-main">
       {% if product.featured_image %}
-        <img src="{{ product.featured_image | image_url: width: 1000 }}" alt="{{ product.featured_image.alt | escape }}" data-gallery-main>
-      {% else %}
-        <span>Product Image<br>Placeholder</span>
+        <img src="{{ product.featured_image | image_url: width: 1100 }}" alt="{{ product.featured_image.alt | escape }}" data-gallery-main>
       {% endif %}
     </div>
     {% if product.images.size > 1 %}
-      <div class="gallery-thumbs">
+      <div class="bs-thumbs">
         {% for image in product.images %}
-          <button class="thumb{% if forloop.first %} is-active{% endif %}" data-gallery-thumb data-full="{{ image | image_url: width: 1000 }}"><span>Image {{ forloop.index }}</span></button>
+          <button type="button" class="bs-thumb{% if forloop.first %} is-active{% endif %}" data-gallery-thumb data-full="{{ image | image_url: width: 1100 }}" aria-label="View image {{ forloop.index }}">
+            <img src="{{ image | image_url: width: 200 }}" alt="{{ image.alt | escape }}" loading="lazy">
+          </button>
         {% endfor %}
       </div>
     {% endif %}
   </div>
-  <div class="product-info">
-    <span class="card-cat">{{ product.type | default: 'Category Placeholder' }}</span>
-    <h1>{{ product.title }}</h1>
-    <p class="price price-lg">{{ product.price | money }}{% if product.compare_at_price > product.price %} <small>{{ product.compare_at_price | money }}</small>{% endif %}</p>
-    <div class="placeholder-text">{{ product.description }}</div>
+  <div>
+    <div class="bs-info-eyebrow">{{ product.vendor }}</div>
+    <h1 style="font-family:var(--font-body);font-weight:800;font-size:clamp(1.7rem,4.5vw,2.3rem);margin:.4rem 0 .6rem;line-height:1.15">{{ product.title }}</h1>
+    {% if product.metafields.judgeme.badge != blank %}
+      <div class="bs-stars">{{ product.metafields.judgeme.badge }}</div>
+    {% endif %}
+    <p class="bs-price" style="font-size:1.5rem">{{ product.price | money }}{% if product.compare_at_price > product.price %} <s>{{ product.compare_at_price | money }}</s>{% endif %}</p>
+    {% if product.compare_at_price > product.price %}
+      {% assign bs_pct = product.compare_at_price | minus: product.price | times: 100.0 | divided_by: product.compare_at_price | round %}
+      <p class="bs-save">You save {{ product.compare_at_price | minus: product.price | money }} ({{ bs_pct }}%)</p>
+    {% endif %}
+    {% if product.description != blank %}<div class="bs-desc">{{ product.description }}</div>{% endif %}
     {% form 'product', product %}
       {% unless product.has_only_default_variant %}
-        <label class="field">Variant
-          <select name="id">
+        <label class="bs-field">Option
+          <select name="id" class="bs-fieldsel">
             {% for variant in product.variants %}
               <option value="{{ variant.id }}"{% if variant == product.selected_or_first_available_variant %} selected{% endif %}{% unless variant.available %} disabled{% endunless %}>
                 {{ variant.title }} — {{ variant.price | money }}{% unless variant.available %} (Sold out){% endunless %}
@@ -34,31 +41,38 @@
       {% else %}
         <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
       {% endunless %}
-      <div class="buy-row">
-        <div class="qty" data-qty>
+      <div class="bs-buyrow">
+        <div class="bs-qty" data-qty>
           <button type="button" data-qty-minus aria-label="Decrease quantity">&minus;</button>
           <input type="text" name="quantity" value="1" inputmode="numeric" aria-label="Quantity" data-qty-input>
           <button type="button" data-qty-plus aria-label="Increase quantity">+</button>
         </div>
-        <button class="btn btn-dark" type="submit" name="add" {% unless product.available %}disabled{% endunless %}>
-          {% if product.available %}Add to Cart{% else %}Sold Out{% endif %}
+        <button class="bs-btn bs-add" type="submit" name="add" {% unless product.available %}disabled{% endunless %}>
+          {% if product.available %}Add to Cart — {{ product.price | money }}{% else %}Sold Out{% endif %}
         </button>
       </div>
+      {% if product.available %}
+        <div class="bs-paybtn">{{ form | payment_button }}</div>
+      {% endif %}
     {% endform %}
-    <div class="accordion" data-accordion>
-      <button class="acc-head" data-acc-head>Specifications</button>
-      <div class="acc-body" hidden>
-        <table class="spec-table">
-          <tr><th>Material</th><td>Specification Placeholder</td></tr>
-          <tr><th>Dimensions</th><td>Specification Placeholder</td></tr>
-          <tr><th>Weight</th><td>Specification Placeholder</td></tr>
-          <tr><th>Care</th><td>Specification Placeholder</td></tr>
-        </table>
+    <div class="bs-buybox">
+      <h4>Good to know</h4>
+      <ul>
+        <li><strong>Shipping:</strong> Standard $8 — FREE on orders $70+. Express $15.</li>
+        <li><strong>Delivery:</strong> Standard 3–5 business days, Express 1–3 — anywhere in the US.</li>
+        <li><strong>Returns:</strong> 30 days, used items accepted. Defective, damaged, or wrong — we make it whole.</li>
+        <li><strong>Sale:</strong> 8% off orders $40+ with code <strong>BIGCHOP8</strong> through Dec 14.</li>
+      </ul>
+    </div>
+    <div class="bs-acc">
+      <button type="button" class="bs-acc-head" data-acc-head>Shipping &amp; Delivery <span>+</span></button>
+      <div class="bs-acc-body" hidden>
+        <p>Standard shipping is $8 (free on orders $70+) and arrives in 3–5 business days. Express is $15 and arrives in 1–3 business days. We ship anywhere in the United States.</p>
       </div>
-      <button class="acc-head" data-acc-head>Shipping Information</button>
-      <div class="acc-body" hidden><p class="placeholder-text">Shipping detail placeholder. See the Shipping Policy page.</p></div>
-      <button class="acc-head" data-acc-head>Returns</button>
-      <div class="acc-body" hidden><p class="placeholder-text">Return detail placeholder. See the Return &amp; Refund Policy page.</p></div>
+      <button type="button" class="bs-acc-head" data-acc-head>Returns &amp; Warranty <span>+</span></button>
+      <div class="bs-acc-body" hidden>
+        <p>30-day returns — used items are accepted, with partial refunds (typically 15%–50%) for wear or missing parts. A defective, damaged, or wrong item is always made whole. Every product carries a 30-day defect warranty.</p>
+      </div>
     </div>
   </div>
 </section>

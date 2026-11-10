@@ -1,26 +1,48 @@
-<section class="page-head"><h1>Shopping Cart</h1></section>
-<section class="prose">
+<section class="bs-pagehead"><h1>Your Cart</h1></section>
+<div class="bs-cartwrap">
   {% if cart.item_count == 0 %}
-    <p class="placeholder-text">Your cart is empty. Browse the <a href="{{ routes.all_products_collection_url }}">Shop</a>.</p>
+    <div class="bs-empty">
+      <p>Your cart is empty.</p>
+      <a class="bs-btn" href="{{ routes.all_products_collection_url }}">Start Shopping</a>
+    </div>
   {% else %}
+    {% assign free_at = 7000 %}
+    <div class="bs-shipbar">
+      {% if cart.total_price >= free_at %}
+        <p><strong>FREE shipping unlocked</strong> — your order ships free.</p>
+        <div class="bs-track"><div class="bs-fill" style="width:100%"></div></div>
+      {% else %}
+        {% assign away = free_at | minus: cart.total_price %}
+        {% assign pct = cart.total_price | times: 100 | divided_by: free_at %}
+        <p>You are <strong>{{ away | money }}</strong> away from <strong>FREE shipping</strong> (orders $70+).</p>
+        <div class="bs-track"><div class="bs-fill" style="width:{{ pct }}%"></div></div>
+      {% endif %}
+    </div>
     {% form 'cart', cart %}
       {% for item in cart.items %}
-        <div class="cart-line">
-          <div class="grow"><strong>{{ item.product.title }}</strong>{% if item.variant.title != 'Default Title' %}<br><small class="placeholder-text">{{ item.variant.title }}</small>{% endif %}<br><small class="placeholder-text">{{ item.final_price | money }} each</small></div>
-          <input type="text" name="updates[]" value="{{ item.quantity }}" inputmode="numeric" aria-label="Quantity" style="width:56px;text-align:center;padding:.5rem;border:1px solid var(--line);border-radius:10px;">
+        <div class="bs-line">
+          {% if item.image %}<a href="{{ item.url }}"><img src="{{ item.image | image_url: width: 200 }}" alt="{{ item.product.title | escape }}"></a>{% endif %}
+          <div class="grow">
+            <strong><a href="{{ item.url }}">{{ item.product.title }}</a></strong>
+            {% if item.variant.title != 'Default Title' %}<br><small>{{ item.variant.title }}</small>{% endif %}
+            <br><small>{{ item.final_price | money }} each</small>
+          </div>
+          <input type="text" name="updates[]" value="{{ item.quantity }}" inputmode="numeric" aria-label="Quantity" style="width:56px;text-align:center;padding:.5rem;background:transparent;border:1px solid #3e3b35;border-radius:10px;color:#f7f4ed;font:inherit">
           <strong>{{ item.final_line_price | money }}</strong>
-          <a class="btn btn-ghost btn-sm" href="{{ item.url_to_remove }}">Remove</a>
+          <a class="bs-remove" href="{{ item.url_to_remove }}">Remove</a>
         </div>
       {% endfor %}
-      <div class="cart-summary">
-        <div class="summary-row"><span>Subtotal</span><strong>{{ cart.total_price | money }}</strong></div>
-        <p class="placeholder-text">Shipping and taxes are calculated at checkout.</p>
-        <button class="btn btn-ghost" type="submit" name="update">Update Cart</button>
-        <button class="btn btn-dark" type="submit" name="checkout">Proceed to Checkout</button>
+      <div class="bs-summary">
+        <div class="bs-sumrow"><span>Subtotal</span><strong>{{ cart.total_price | money }}</strong></div>
+        <p class="bs-note">Shipping and taxes are calculated at checkout. Have code <strong style="color:#d9bc7a">BIGCHOP8</strong>? Apply it at checkout for 8% off orders $40+ through Dec 14.</p>
+        <div style="display:flex;gap:.7rem;flex-wrap:wrap">
+          <button class="bs-update" type="submit" name="update">Update Cart</button>
+          <button class="bs-btn bs-checkout" type="submit" name="checkout" style="flex:1">Proceed to Checkout</button>
+        </div>
       </div>
     {% endform %}
   {% endif %}
-</section>
+</div>
 {% schema %}
 {"name": "Cart", "settings": []}
 {% endschema %}
