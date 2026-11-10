@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>14-in-1 Veggie Chopper — B.I.G. Steppas LLC</title>
+<meta name="description" content="Eight blades with container and cheese grater — the mid-size workhorse of the lineup, and the deepest cut in the Christmas Chop Sale.">
+<style>
+:root{--bg:#242321;--panel:#2e2c29;--panel2:#35322e;--ink:#f7f4ed;--muted:#b8b0a0;--gold:#b69a5a;--gold-hi:#d9bc7a;--coral:#ff6f61;--red:#e5484d;--line:rgba(182,154,90,.28)}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;min-height:100vh}
+.glow{position:fixed;inset:0;pointer-events:none;background:radial-gradient(600px 300px at 15% -5%,rgba(182,154,90,.15),transparent 60%),radial-gradient(700px 340px at 90% 0%,rgba(182,154,90,.09),transparent 60%);animation:pulse 9s ease-in-out infinite alternate}
+@keyframes pulse{from{opacity:.75}to{opacity:1}}
+.wrap{position:relative;max-width:1060px;margin:0 auto;padding:2rem 1.1rem 3rem}
+.rise{opacity:0;transform:translateY(22px);animation:rise .8s cubic-bezier(.2,.7,.2,1) forwards}
+@keyframes rise{to{opacity:1;transform:none}}
+.d1{animation-delay:.05s}.d2{animation-delay:.18s}.d3{animation-delay:.32s}.d4{animation-delay:.48s}
+a{color:var(--gold-hi)}
+.crumb{font-size:.88rem;color:var(--muted);margin-bottom:1.2rem}
+.crumb a{text-decoration:none}
+.brand{text-align:center;font-size:.8rem;letter-spacing:.42em;color:var(--muted);text-transform:uppercase}
+.crown{text-align:center;font-size:1.8rem;color:var(--gold);animation:bob 3.2s ease-in-out infinite}
+@keyframes bob{0%,100%{transform:translateY(0) rotate(-2deg)}50%{transform:translateY(-6px) rotate(2deg)}}
+h1{font-size:clamp(1.9rem,5.5vw,3rem);line-height:1.1;font-weight:800;text-align:center;margin:.4rem 0 .3rem;background:linear-gradient(100deg,var(--gold-hi) 10%,#fff6df 30%,var(--gold) 55%,var(--gold-hi) 80%);background-size:220% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shine 5.5s linear infinite}
+@keyframes shine{to{background-position:-220% 0}}
+.tag{text-align:center;color:var(--muted);margin-bottom:1.6rem}
+.grid{display:grid;grid-template-columns:1fr;gap:1rem}
+@media(min-width:720px){.grid{grid-template-columns:repeat(3,1fr)}}
+.card{border-radius:18px;background:linear-gradient(160deg,var(--panel2),var(--panel));border:1px solid var(--line);overflow:hidden;transition:transform .35s cubic-bezier(.2,.7,.2,1),box-shadow .35s;text-decoration:none;color:var(--ink);display:block;position:relative}
+.card:hover{transform:translateY(-5px);box-shadow:0 18px 40px rgba(0,0,0,.45)}
+.card .media{background:#f7f4ed;position:relative}
+.card .media img{display:block;width:100%;aspect-ratio:1/1;object-fit:contain}
+.badge{position:absolute;top:.6rem;left:.6rem;background:var(--red);color:#fff;font-size:.74rem;font-weight:700;padding:.28rem .58rem;border-radius:7px;z-index:2}
+.card .body{padding:1.05rem 1.1rem 1.15rem}
+.card h3{font-size:1.06rem;line-height:1.3;margin-bottom:.35rem}
+.price{font-size:1.12rem}
+.price strong{color:var(--coral)}
+.price s{color:var(--muted);font-size:.92rem;margin-left:.35rem}
+.card p{color:var(--muted);font-size:.9rem;line-height:1.45;margin-top:.4rem}
+.hero{display:grid;grid-template-columns:1fr;gap:1.4rem}
+@media(min-width:820px){.hero{grid-template-columns:1.05fr 1fr;gap:2rem}}
+.hero .media{background:#f7f4ed;border-radius:16px;position:relative;padding:1rem}
+.hero .media img{display:block;width:100%;aspect-ratio:1/1;object-fit:contain}
+.hero h1{text-align:left;font-size:clamp(1.6rem,4.5vw,2.3rem)}
+.hero .price{font-size:1.5rem;margin:.5rem 0 .2rem}
+.save{display:inline-block;background:var(--red);color:#fff;font-size:.78rem;font-weight:700;padding:.24rem .6rem;border-radius:999px;margin-left:.5rem;vertical-align:middle}
+.desc{color:var(--muted);line-height:1.55;margin:.8rem 0 1.1rem}
+.btn{display:inline-block;appearance:none;border:0;cursor:pointer;font:inherit;font-weight:700;border-radius:999px;padding:.85rem 1.6rem;background:linear-gradient(180deg,var(--gold-hi),var(--gold));color:#242321;text-decoration:none;transition:transform .2s,box-shadow .2s;box-shadow:0 6px 18px rgba(182,154,90,.28);margin:0 .5rem .6rem 0}
+.btn:hover{transform:translateY(-2px) scale(1.02)}
+.btn.ghost{background:transparent;color:var(--gold-hi);border:1.5px solid var(--gold);box-shadow:none}
+.perks{list-style:none;margin-top:1.2rem;padding:1rem 1.1rem;border:1px solid #4a463f;border-radius:14px;display:grid;gap:.45rem;font-size:.93rem}
+.perks strong{color:var(--gold)}
+footer{margin-top:2.6rem;text-align:center;color:var(--muted);font-size:.85rem;line-height:1.7}
+footer .bs{color:var(--gold-hi);letter-spacing:.3em;font-size:.72rem;text-transform:uppercase}
+.fine{font-size:.8rem;color:var(--muted);margin-top:.6rem}
+@media (prefers-reduced-motion: reduce){*,*::before,*::after{animation-duration:.001s !important;animation-iteration-count:1 !important;transition-duration:.001s !important}.rise{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<div class="glow"></div>
+<div class="wrap">
+
+  <p class="crumb rise d1"><a href="products.html">&larr; All products</a></p>
+  <div class="hero">
+    <div class="media rise d1">
+      <span class="badge">-35%</span>
+      <img src="https://cdn.shopify.com/s/files/1/0791/5218/5423/files/9e46d0023ed94784864bd8bb37aee71c_tplv-fhlh96nyum-origin-jpeg.jpg?v=1793297417" alt="14-in-1 Veggie Chopper">
+    </div>
+    <div class="rise d2">
+      <h1>14-in-1 Veggie Chopper</h1>
+      <p class="price"><strong>$18.84</strong> <s>$28.99</s><span class="save">Save $10.15</span></p>
+      <p class="fine">Christmas Chop Sale price. Prices update with live sales &mdash; the shop always has today's number.</p>
+      <p class="desc">Eight blades with container and cheese grater — the mid-size workhorse of the lineup, and the deepest cut in the Christmas Chop Sale.</p>
+      <a class="btn" href="https://vt.tiktok.com/ZTfdCMYuD/?page=TikTokShop" target="_blank" rel="noopener">Get it in the Shop</a>
+      <a class="btn ghost" href="vault.html">Open the Vault</a>
+      <ul class="perks">
+        <li><strong>Shipping:</strong> Standard $8 &middot; FREE at $70+ &middot; Express $15</li>
+        <li><strong>Delivery:</strong> Standard 3&ndash;5 business days &middot; Express 1&ndash;3 &middot; US-wide</li>
+        <li><strong>Returns:</strong> 30 days &middot; used items accepted</li>
+        <li><strong>Vault code:</strong> BIGCHOP8 &mdash; 8% off orders $40+ through Dec 14</li>
+      </ul>
+    </div>
+  </div>
+  <footer class="rise d4">
+    <div class="bs">Bless &middot; Inspire &middot; Grow</div>
+    B.I.G. Steppas LLC &mdash; Kitchen tools with purpose.
+  </footer>
+</div>
+</body>
+</html>
