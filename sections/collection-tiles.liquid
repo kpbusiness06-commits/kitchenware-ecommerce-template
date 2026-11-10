@@ -1,0 +1,31 @@
+<section class="bs-wrap bs-section">
+  <div class="bs-sec-head"><h2>{{ section.settings.heading }}</h2>{% if section.settings.view_all_label != blank %}<a href="{{ section.settings.view_all_link | default: routes.all_products_collection_url }}">{{ section.settings.view_all_label }} &rarr;</a>{% endif %}</div>
+  <div class="bs-tiles">
+    {% for block in section.blocks %}
+      <a class="bs-tile" href="{{ block.settings.link | default: '#' }}" {{ block.shopify_attributes }}>
+        {% if block.settings.image %}
+          {{ block.settings.image | image_url: width: 700 | image_tag: loading: 'lazy', alt: block.settings.label }}
+        {% elsif block.settings.fallback_image != blank %}
+          <img src="{{ block.settings.fallback_image }}" alt="{{ block.settings.label }}" loading="lazy">
+        {% endif %}
+        {% if block.settings.coming_soon %}<span class="bs-soon">Coming Soon</span>{% endif %}
+        <span class="bs-tile-lbl">{{ block.settings.label }}</span>
+      </a>
+    {% endfor %}
+  </div>
+</section>
+{% schema %}
+{"name": "Collection tiles", "settings": [
+  {"type": "text", "id": "heading", "label": "Heading", "default": "Shop by Collection"},
+  {"type": "text", "id": "view_all_label", "label": "View-all label", "default": "See All Products"},
+  {"type": "url", "id": "view_all_link", "label": "View-all link"}
+],
+"blocks": [{"type": "tile", "name": "Tile", "settings": [
+  {"type": "text", "id": "label", "label": "Label", "default": "Collection"},
+  {"type": "url", "id": "link", "label": "Link"},
+  {"type": "image_picker", "id": "image", "label": "Image"},
+  {"type": "text", "id": "fallback_image", "label": "Fallback image URL (used until an image is picked)"},
+  {"type": "checkbox", "id": "coming_soon", "label": "Show Coming Soon", "default": false}
+]}],
+"presets": [{"name": "Collection tiles", "blocks": [{"type": "tile"}, {"type": "tile"}, {"type": "tile"}, {"type": "tile"}]}]}
+{% endschema %}

@@ -1,34 +1,21 @@
-<section class="hero">
-  <div class="hero-copy">
-    <span class="eyebrow">{{ section.settings.eyebrow }}</span>
+<section class="bs-hero"{% if section.settings.image %} style="background-image:url('{{ section.settings.image | image_url: width: 1800 }}')"{% endif %}>
+  <div class="bs-hero-shade"></div>
+  <div class="bs-hero-inner">
+    {% if section.settings.eyebrow != blank %}<div class="bs-eyebrow">{{ section.settings.eyebrow }}</div>{% endif %}
     <h1>{{ section.settings.headline }}</h1>
-    <p class="placeholder-text">{{ section.settings.subtext }}</p>
-    <div class="hero-ctas">
-      {% if section.settings.button_label != blank %}
-        <a class="btn btn-dark" href="{{ section.settings.button_link | default: routes.all_products_collection_url }}">{{ section.settings.button_label }}</a>
-      {% endif %}
-      {% if section.settings.button2_label != blank %}
-        <a class="btn btn-ghost" href="{{ section.settings.button2_link | default: '#' }}">{{ section.settings.button2_label }}</a>
-      {% endif %}
-    </div>
-  </div>
-  <div class="hero-media">
-    {% if section.settings.image %}
-      {{ section.settings.image | image_url: width: 1200 | image_tag }}
-    {% else %}
-      <span>Hero Image<br>Placeholder</span>
+    {% if section.settings.subtext != blank %}<p>{{ section.settings.subtext }}</p>{% endif %}
+    {% if section.settings.button_label != blank %}
+      <a class="bs-btn" href="{{ section.settings.button_link | default: routes.all_products_collection_url }}">{{ section.settings.button_label }}</a>
     {% endif %}
   </div>
 </section>
 {% schema %}
 {"name": "Hero", "settings": [
-  {"type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Hero Eyebrow Placeholder"},
-  {"type": "text", "id": "headline", "label": "Headline", "default": "Headline Placeholder for a Premium Kitchen Store"},
-  {"type": "textarea", "id": "subtext", "label": "Subheadline", "default": "Subheadline placeholder. Add your own value statement here."},
-  {"type": "image_picker", "id": "image", "label": "Hero image"},
-  {"type": "text", "id": "button_label", "label": "Button label", "default": "Shop the Collection"},
-  {"type": "url", "id": "button_link", "label": "Button link"},
-  {"type": "text", "id": "button2_label", "label": "Second button label", "default": "Our Story"},
-  {"type": "url", "id": "button2_link", "label": "Second button link"}
+  {"type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "B.I.G. Steppas LLC"},
+  {"type": "text", "id": "headline", "label": "Headline", "default": "Everyday finds. Bigger possibilities."},
+  {"type": "textarea", "id": "subtext", "label": "Subheadline", "default": "Kitchen tools with purpose. The choppers that do the prep work for you \u2014 built for real kitchens, priced for real people."},
+  {"type": "image_picker", "id": "image", "label": "Hero image (optional \u2014 a built-in photo is used until you pick one)"},
+  {"type": "text", "id": "button_label", "label": "Button label", "default": "Explore the Collection"},
+  {"type": "url", "id": "button_link", "label": "Button link"}
 ], "presets": [{"name": "Hero"}]}
 {% endschema %}

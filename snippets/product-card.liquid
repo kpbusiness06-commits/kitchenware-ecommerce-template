@@ -1,15 +1,26 @@
-<article class="card">
-  <a class="card-media" href="{{ product.url }}">
+<article class="bs-card">
+  <a class="bs-card-media" href="{{ product.url }}">
     {% if product.featured_image %}
-      {{ product.featured_image | image_url: width: 700 | image_tag: loading: 'lazy' }}
-    {% else %}
-      <span>Product Image<br>Placeholder</span>
+      {{ product.featured_image | image_url: width: 700 | image_tag: loading: 'lazy', alt: product.title }}
+    {% endif %}
+    {% if product.compare_at_price > product.price %}
+      {% assign bs_pct = product.compare_at_price | minus: product.price | times: 100.0 | divided_by: product.compare_at_price | round %}
+      <span class="bs-badge">-{{ bs_pct }}%</span>
     {% endif %}
   </a>
-  <div class="card-body">
-    <span class="card-cat">{{ product.type | default: 'Category Placeholder' }}</span>
+  <div class="bs-card-body">
     <h3><a href="{{ product.url }}">{{ product.title }}</a></h3>
-    <p class="price">{{ product.price | money }}{% if product.compare_at_price > product.price %} <small>{{ product.compare_at_price | money }}</small>{% endif %}</p>
-    <a class="btn btn-dark btn-sm" href="{{ product.url }}">View Product</a>
+    <div class="bs-card-row">
+      <p class="bs-price">{{ product.price | money }}{% if product.compare_at_price > product.price %} <s>{{ product.compare_at_price | money }}</s>{% endif %}</p>
+      {% if product.available %}
+        {% form 'product', product %}
+          <input type="hidden" name="id" value="{{ product.first_available_variant.id }}">
+          <button type="submit" class="bs-plus" aria-label="Add {{ product.title | escape }} to cart"><span></span></button>
+        {% endform %}
+      {% endif %}
+    </div>
+    {% if product.compare_at_price > product.price %}
+      <p class="bs-save">Save {{ product.compare_at_price | minus: product.price | money }}</p>
+    {% endif %}
   </div>
 </article>

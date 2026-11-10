@@ -1,34 +1,46 @@
-<footer class="site-footer">
-  <div class="footer-grid">
+<footer class="bs-footer">
+  <div class="bs-fgrid">
     <div>
-      <span class="logo-box">LOGO</span>
-      <p class="placeholder-text">Short brand statement placeholder. Add your own business description here.</p>
+      <div class="bs-fname">{{ shop.name }}</div>
+      <p class="bs-fstate">Kitchen tools with purpose.<br>Bless. Inspire. Grow.</p>
     </div>
     <div>
       <h4>Shop</h4>
-      {% for link in linklists.footer.links %}
-        <a href="{{ link.url }}">{{ link.title }}</a>
+      {% if linklists.footer.links.size > 0 %}
+        {% for link in linklists.footer.links %}<a href="{{ link.url }}">{{ link.title }}</a>{% endfor %}
       {% else %}
         <a href="{{ routes.all_products_collection_url }}">All Products</a>
-      {% endfor %}
+        <a href="/collections/best-selling">Best Selling</a>
+        <a href="/collections/utensils-gadgets">Utensils &amp; Gadgets</a>
+        <a href="/collections/appliances">Appliances</a>
+        <a href="/collections/cleaning-storage">Cleaning &amp; Storage</a>
+      {% endif %}
     </div>
     <div>
       <h4>Customer Care</h4>
-      <a href="{{ pages['faq'].url | default: '#' }}">FAQ</a>
-      <a href="{{ pages['shipping-policy'].url | default: '#' }}">Shipping Policy</a>
-      <a href="{{ pages['return-refund-policy'].url | default: '#' }}">Return &amp; Refund Policy</a>
-      <a href="{{ pages['contact'].url | default: '#' }}">Contact Us</a>
+      {% assign care = 0 %}
+      {% if pages['faq'] %}<a href="{{ pages['faq'].url }}">FAQ</a>{% assign care = care | plus: 1 %}{% endif %}
+      {% if pages['shipping-policy'] %}<a href="{{ pages['shipping-policy'].url }}">Shipping Policy</a>{% assign care = care | plus: 1 %}{% endif %}
+      {% if pages['return-refund-policy'] %}<a href="{{ pages['return-refund-policy'].url }}">Return &amp; Refund Policy</a>{% assign care = care | plus: 1 %}{% endif %}
+      {% if pages['contact'] %}<a href="{{ pages['contact'].url }}">Contact Us</a>{% assign care = care | plus: 1 %}{% endif %}
+      {% if care == 0 and shop.email %}<a href="mailto:{{ shop.email }}">Email Us</a>{% endif %}
     </div>
     <div>
       <h4>Legal</h4>
       {% for policy in shop.policies %}
         <a href="{{ policy.url }}">{{ policy.title }}</a>
+      {% else %}
+        <span style="color:#b8b0a0">Policies coming soon</span>
       {% endfor %}
     </div>
   </div>
-  <div class="footer-bottom">
+  <div class="bs-fbottom">
     <span>&copy; {{ 'now' | date: '%Y' }} {{ shop.name }}. All rights reserved.</span>
-    <span class="placeholder-text">Payment icons placeholder</span>
+    <span class="bs-pay">
+      {% for type in shop.enabled_payment_types %}
+        <img src="https://cdn.shopify.com/shopifycloud/shopify/assets/payment-icons/{{ type | payment_type_svg_filename }}" alt="{{ type }}" loading="lazy" onerror="this.remove()">
+      {% endfor %}
+    </span>
   </div>
 </footer>
 {% schema %}

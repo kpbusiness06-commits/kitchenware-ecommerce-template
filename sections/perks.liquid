@@ -1,0 +1,15 @@
+<section class="bs-wrap bs-section">
+  <div class="bs-perks">
+    {% for block in section.blocks %}
+      <div class="bs-perk" {{ block.shopify_attributes }}><strong>{{ block.settings.title }}</strong><span>{{ block.settings.text }}</span></div>
+    {% endfor %}
+  </div>
+</section>
+{% schema %}
+{"name": "Perks row", "settings": [],
+"blocks": [{"type": "perk", "name": "Perk", "settings": [
+  {"type": "text", "id": "title", "label": "Title", "default": "Perk"},
+  {"type": "textarea", "id": "text", "label": "Text"}
+]}],
+"presets": [{"name": "Perks row", "blocks": [{"type": "perk"}, {"type": "perk"}, {"type": "perk"}]}]}
+{% endschema %}

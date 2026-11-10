@@ -1,68 +1,136 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
 {
   "sections": {
     "hero": {
       "type": "hero",
       "settings": {
-        "eyebrow": "Hero Eyebrow Placeholder",
-        "headline": "hey its me.",
-        "subtext": "Subheadline placeholder. Add your own value statement here.",
-        "image": "shopify://shop_images/christmas-card-height-crop.png",
-        "button_label": "Shop the Collection",
-        "button_link": "",
-        "button2_label": "Our Story",
-        "button2_link": ""
+        "eyebrow": "B.I.G. Steppas LLC",
+        "headline": "Everyday finds. Bigger possibilities.",
+        "subtext": "Kitchen tools with purpose. The choppers that do the prep work for you — built for real kitchens, priced for real people.",
+        "button_label": "Explore the Collection",
+        "button_link": "/collections/best-selling"
       }
     },
-    "featured": {
+    "tiles": {
+      "type": "collection-tiles",
+      "settings": {
+        "heading": "Shop by Collection",
+        "view_all_label": "See All Products",
+        "view_all_link": "/collections/all"
+      },
+      "blocks": {
+        "t1": {
+          "type": "tile",
+          "settings": {
+            "label": "Best Selling",
+            "link": "/collections/best-selling",
+            "fallback_image": "https://cdn.shopify.com/s/files/1/0791/5218/5423/files/8a18e9f0-a0d5-48c0-8933-8690a86c9ce4_6bf585e0-9a45-45b6-9a39-1c8a9ca550c2.jpg?v=1793297419",
+            "coming_soon": false
+          }
+        },
+        "t2": {
+          "type": "tile",
+          "settings": {
+            "label": "Utensils & Gadgets",
+            "link": "/collections/utensils-gadgets",
+            "fallback_image": "https://cdn.shopify.com/s/files/1/0791/5218/5423/files/9e46d0023ed94784864bd8bb37aee71c_tplv-fhlh96nyum-origin-jpeg.jpg?v=1793297417",
+            "coming_soon": false
+          }
+        },
+        "t3": {
+          "type": "tile",
+          "settings": {
+            "label": "Appliances",
+            "link": "/collections/appliances",
+            "fallback_image": "",
+            "coming_soon": true
+          }
+        },
+        "t4": {
+          "type": "tile",
+          "settings": {
+            "label": "Cleaning & Storage",
+            "link": "/collections/cleaning-storage",
+            "fallback_image": "",
+            "coming_soon": true
+          }
+        }
+      },
+      "block_order": [
+        "t1",
+        "t2",
+        "t3",
+        "t4"
+      ]
+    },
+    "sale": {
+      "type": "promo-banner",
+      "settings": {
+        "kick": "B.I.G. Steppas",
+        "title": "CHRISTMAS SALE",
+        "text": "Give something meaningful. More deals, all in one place.",
+        "button_label": "Tap to Explore",
+        "button_link": "/collections/best-selling"
+      }
+    },
+    "picks": {
       "type": "featured-collection",
       "settings": {
-        "heading": "Featured Products",
+        "heading": "Top Picks for You",
+        "view_all_label": "See All Deals",
         "collection": "best-selling",
         "product_limit": 4
       }
     },
-    "promo": {
+    "chop": {
       "type": "promo-banner",
       "settings": {
-        "text": "Promotional Banner Placeholder — Add your current offer here"
+        "pill": "Now through Dec 14",
+        "title": "CHRISTMAS CHOP SALE",
+        "text": "All three choppers on sale — from $18.84. Extra 8% off orders $40+ with code",
+        "code": "BIGCHOP8",
+        "button_label": "Apply BIGCHOP8 & Shop",
+        "button_link": "/discount/BIGCHOP8"
       }
     },
-    "reviews": {
-      "type": "reviews-placeholder",
-      "settings": {
-        "heading": "Customer Reviews"
-      }
-    },
-    "newsletter": {
-      "type": "newsletter",
-      "settings": {
-        "heading": "Newsletter Signup",
-        "text": "Invite placeholder — tell visitors what they get for joining your list."
-      }
-    },
-    "promo_banner_Rbnw9m": {
-      "type": "promo-banner",
-      "name": "Promo banner",
-      "settings": {
-        "text": "Promotional Banner Placeholder — Add your current offer here"
-      }
+    "perks": {
+      "type": "perks",
+      "settings": {},
+      "blocks": {
+        "p1": {
+          "type": "perk",
+          "settings": {
+            "title": "Fast US Shipping",
+            "text": "Standard $8, FREE on orders $70+. Express $15. Delivery in 3–5 business days, anywhere in the US."
+          }
+        },
+        "p2": {
+          "type": "perk",
+          "settings": {
+            "title": "30-Day Returns",
+            "text": "Used items accepted. Defective, damaged, or wrong — we make it whole."
+          }
+        },
+        "p3": {
+          "type": "perk",
+          "settings": {
+            "title": "The Vault",
+            "text": "One code for everybody, three more for members. Claim BIGCHOP8 at checkout."
+          }
+        }
+      },
+      "block_order": [
+        "p1",
+        "p2",
+        "p3"
+      ]
     }
   },
   "order": [
     "hero",
-    "featured",
-    "promo",
-    "reviews",
-    "newsletter",
-    "promo_banner_Rbnw9m"
+    "tiles",
+    "sale",
+    "picks",
+    "chop",
+    "perks"
   ]
 }
