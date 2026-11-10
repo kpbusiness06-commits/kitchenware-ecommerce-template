@@ -25,6 +25,10 @@
   .snow span{position:absolute;top:-4vh;color:#fff;opacity:.5;animation:fall linear infinite}
   @keyframes fall{to{transform:translateY(110vh)}}
   .wrap{position:relative;z-index:2;max-width:1060px;margin:0 auto;padding:2.2rem 1.1rem 3rem}
+  nav{display:flex;gap:.4rem;flex-wrap:wrap;justify-content:center;margin-bottom:1.6rem}
+  nav a{color:var(--ink);text-decoration:none;font-weight:600;font-size:.92rem;padding:.5rem .95rem;border-radius:999px;border:1px solid transparent;transition:border-color .2s,background .2s}
+  nav a:hover{border-color:var(--line)}
+  nav a.here{background:var(--gold);color:#242321}
   /* entrance */
   .rise{opacity:0;transform:translateY(22px);animation:rise .8s cubic-bezier(.2,.7,.2,1) forwards}
   @keyframes rise{to{opacity:1;transform:none}}
@@ -115,6 +119,14 @@
 <div class="glow"></div>
 <div class="snow" id="snow" aria-hidden="true"></div>
 <div class="wrap">
+
+  <nav class="rise d1">
+    <a href="products.html">Products</a>
+    <a href="vault.html" class="here">The Vault</a>
+    <a href="faq.html">FAQ</a>
+    <a href="contact.html">Contact</a>
+    <a href="bulk-order.html">Bulk Orders</a>
+  </nav>
 
   <header class="rise d1">
     <span class="crown" aria-hidden="true">&#9819;</span>
