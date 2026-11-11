@@ -5,25 +5,11 @@
       <p class="bs-fstate">Kitchen tools with purpose.<br>Bless. Inspire. Grow.</p>
     </div>
     <div>
-      <h4>Shop</h4>
-      {% if linklists.footer.links.size > 0 %}
-        {% for link in linklists.footer.links %}<a href="{{ link.url }}">{{ link.title }}</a>{% endfor %}
-      {% else %}
-        <a href="{{ routes.all_products_collection_url }}">All Products</a>
-        <a href="/collections/best-selling">B.I.G.'s Best Sellers</a>
-        <a href="/collections/utensils-gadgets">Utensils &amp; Gadgets</a>
-        <a href="/collections/appliances">Appliances</a>
-        <a href="/collections/cleaning-storage">Cleaning &amp; Storage</a>
-      {% endif %}
-    </div>
-    <div>
       <h4>Customer Care</h4>
-      {% assign care = 0 %}
-      {% if pages['faq'] %}<a href="{{ pages['faq'].url }}">FAQ</a>{% assign care = care | plus: 1 %}{% endif %}
-      {% if pages['shipping-policy'] %}<a href="{{ pages['shipping-policy'].url }}">Shipping Policy</a>{% assign care = care | plus: 1 %}{% endif %}
-      {% if pages['return-refund-policy'] %}<a href="{{ pages['return-refund-policy'].url }}">Return &amp; Refund Policy</a>{% assign care = care | plus: 1 %}{% endif %}
-      {% if pages['contact'] %}<a href="{{ pages['contact'].url }}">Contact Us</a>{% assign care = care | plus: 1 %}{% endif %}
-      {% if care == 0 and shop.email %}<a href="mailto:{{ shop.email }}">Email Us</a>{% endif %}
+      <a href="https://kpbusiness06-commits.github.io/kitchenware-ecommerce-template/contact.html">FAQ</a>
+      <a href="/policies/shipping-policy">Shipping Policy</a>
+      <a href="/policies/refund-policy">Refund Policy</a>
+      {% if pages['contact'] %}<a href="{{ pages['contact'].url }}">Contact Us</a>{% elsif shop.email %}<a href="mailto:{{ shop.email }}">Email Us</a>{% endif %}
     </div>
     <div>
       <h4>Legal</h4>
