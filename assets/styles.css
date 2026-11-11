@@ -218,7 +218,7 @@ main{max-width:var(--max);margin:0 auto;padding:0 1.25rem 3rem}
 .bs-grid{display:grid;grid-template-columns:1fr;gap:1.1rem}
 @media(min-width:640px){.bs-grid{grid-template-columns:repeat(3,1fr)}}
 .bs-card{border-radius:18px;background:linear-gradient(160deg,#35322e,#2e2c29);border:1px solid rgba(182,154,90,.28);overflow:hidden;display:flex;flex-direction:column}
-.bs-card-media{position:relative;aspect-ratio:4/3;background:#1b1a18;display:block}
+.bs-card-media{position:relative;aspect-ratio:1/1;background:#1b1a18;display:block}
 .bs-card-media img{width:100%;height:100%;object-fit:cover;display:block}
 .bs-badge{position:absolute;top:.7rem;left:.7rem;background:#e5484d;color:#fff;font-weight:800;font-size:.8rem;padding:.28rem .6rem;border-radius:999px}
 .bs-card-body{padding:1rem 1.1rem 1.2rem;display:flex;flex-direction:column;gap:.3rem;flex:1}
