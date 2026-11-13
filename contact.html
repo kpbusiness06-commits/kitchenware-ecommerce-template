@@ -168,8 +168,25 @@ footer .fstate{color:var(--muted);line-height:1.55;max-width:300px}
 
   <div class="card rise d4">
     <h2>Send a message</h2>
-    <p>Use the shop's own message box &mdash; type what you need help with, hit send, and it lands straight in our inbox. You never leave the store.</p>
-    <p style="margin-top:.6rem"><a class="btn" href="https://steppasllc.myshopify.com/pages/contact">Open the Message Box</a></p>
+    <form id="contactForm">
+      <div class="two">
+        <div><label for="cName">Your name</label><input id="cName" required autocomplete="name"></div>
+        <div><label for="cEmail">Email</label><input id="cEmail" type="email" required autocomplete="email"></div>
+      </div>
+      <div><label for="cTopic">What&rsquo;s it about?</label>
+        <select id="cTopic">
+          <option>An order</option>
+          <option>A product question</option>
+          <option>Shipping</option>
+          <option>Returns &amp; refunds</option>
+          <option>The Vault / discount codes</option>
+          <option>Something else</option>
+        </select></div>
+      <div><label for="cMsg">Message</label><textarea id="cMsg" required placeholder="Tell us what you need."></textarea></div>
+      <button class="btn" type="submit">Send Message</button>
+      <p class="note">Opens your email app with the message ready to send to kpbusiness06@gmail.com. A human answers.</p>
+    </form>
+    <div class="done" id="contactDone"><span class="check">&#10003;</span><strong>Message drafted</strong> &mdash; hit send in your email app and it&rsquo;s with us.</div>
   </div>
   </div>
 
@@ -223,6 +240,19 @@ function bsConfetti(x,y){
     s.animate([{transform:'translate(0,0) rotate(0deg)',opacity:1},{transform:'translate('+dx+'px,'+(dy+250)+'px) rotate('+(Math.random()*540-270)+'deg)',opacity:0}],{duration:950+Math.random()*450,easing:'cubic-bezier(.2,.7,.3,1)'}).onfinish=(function(el){return function(){el.remove()}})(s);
   }
 }
+</script>
+<script>
+document.getElementById('contactForm').addEventListener('submit',function(e){
+  e.preventDefault();
+  function v(id){return document.getElementById(id).value.trim()}
+  var lines=['Contact — B.I.G. Steppas','',
+    'Name: '+v('cName'),'Email: '+v('cEmail'),'Topic: '+v('cTopic'),'',
+    v('cMsg')];
+  var subject=encodeURIComponent('Contact — '+v('cTopic')+' — '+v('cName'));
+  window.location.href='mailto:kpbusiness06@gmail.com?subject='+subject+'&body='+encodeURIComponent(lines.join('\n'));
+  var done=document.getElementById('contactDone'); done.style.display='block';
+  var r=e.target.getBoundingClientRect(); bsConfetti(r.left+r.width/2, r.top+40);
+});
 </script>
 <script>/* sh2DropToggle */document.querySelectorAll('.sh2-drop > a').forEach(function(a){a.addEventListener('click',function(e){if(window.matchMedia('(max-width: 990px)').matches){e.preventDefault();a.parentNode.classList.toggle('open');}});});</script>
 </body>
