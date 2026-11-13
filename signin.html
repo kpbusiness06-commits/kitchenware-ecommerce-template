@@ -148,35 +148,22 @@ footer .fstate{color:var(--muted);line-height:1.55;max-width:300px}
   <h1 class="rise d1">Sign In</h1>
   <p class="tag rise d2" id="tagline">Members get the keys to the Vault. <strong>New here? Create your account.</strong></p>
 
-  <div class="done rise d2" id="alreadyIn" style="display:none">
-    <span class="check">&#10003;</span>
-    <strong>You're already signed in on this device</strong>
-    <p style="color:var(--muted);margin-top:.3rem">Taking you to your profile&hellip;</p>
-  </div>
-
   <div id="forms">
   <div class="card rise d2">
     <h2>Create your account</h2>
-    <form id="upForm">
-      <div><label for="uName">Your name</label><input id="uName" autocomplete="name" placeholder="First and last name"></div>
-      <div><label for="uEmail">Email</label><input id="uEmail" type="email" required autocomplete="email" placeholder="you@email.com"></div>
-      <button class="btn" type="submit">Sign Up</button>
-      <p class="note">Joining unlocks the members' tier in the Vault — three extra offers on top of the guest code.</p>
-    </form>
-    <div class="done" id="upDone"><span class="check">&#10003;</span><strong>Account created</strong> — taking you to your profile&hellip;</div>
+    <p class="note" style="margin-bottom:1rem">Join on Shopify — our real account home. One account for your orders, checkout, and member drops, and it works on every device.</p>
+    <a class="btn" href="https://steppasllc.myshopify.com/account">Join / Sign Up</a>
+    <p class="note">Shopify emails you a one-time code — no password to remember.</p>
   </div>
 
   <div class="card rise d3">
     <h2>Welcome back — sign in</h2>
-    <form id="inForm">
-      <div><label for="iEmail">Email</label><input id="iEmail" type="email" required autocomplete="email" placeholder="you@email.com"></div>
-      <button class="btn ghost" type="submit">Sign In</button>
-      <p class="note" id="inMsg">Use the email you signed up with on this device.</p>
-    </form>
+    <p class="note" style="margin-bottom:1rem">Sign in with the email you joined with. Shopify sends a fresh one-time code every time — same email, any device.</p>
+    <a class="btn ghost" href="https://steppasllc.myshopify.com/account">Sign In</a>
   </div>
   </div>
 
-  <p class="note rise d4">Accounts live on your device for now — full customer accounts arrive with the storefront.</p>
+  <p class="note rise d4">Accounts are powered by Shopify — sign in once, and your account works everywhere.</p>
 
   <footer class="rise d6">
     <div class="fgrid">
@@ -213,47 +200,6 @@ footer .fstate{color:var(--muted);line-height:1.55;max-width:300px}
     <div class="copy"><span class="bs">Bless &middot; Inspire &middot; Grow</span>&copy; 2026 B.I.G. Steppas LLC. All rights reserved.</div>
   </footer>
 </div>
-<script>
-var JOIN_KEY='bs_vault_joined_v1', NAME_KEY='bs_vault_name_v1';
-function getJoined(){ try{return localStorage.getItem(JOIN_KEY);}catch(e){return null;} }
-if(getJoined()){
-  document.getElementById('forms').style.display='none';
-  document.getElementById('tagline').style.display='none';
-  document.getElementById('alreadyIn').style.display='block';
-  setTimeout(function(){ location.href='profile.html'; }, 1100);
-}
-function bsConfetti(x,y){
-  var colors=['#b69a5a','#d9bc7a','#f7f4ed','#ff6f61'];
-  for(var i=0;i<24;i++){
-    var s=document.createElement('span'); s.className='confetti';
-    s.style.background=colors[i%colors.length];
-    s.style.left=x+'px'; s.style.top=y+'px';
-    document.body.appendChild(s);
-    var ang=Math.random()*Math.PI*2, v=90+Math.random()*160;
-    var dx=Math.cos(ang)*v, dy=Math.sin(ang)*v-110;
-    s.animate([{transform:'translate(0,0) rotate(0deg)',opacity:1},{transform:'translate('+dx+'px,'+(dy+250)+'px) rotate('+(Math.random()*540-270)+'deg)',opacity:0}],{duration:950+Math.random()*450,easing:'cubic-bezier(.2,.7,.3,1)'}).onfinish=(function(el){return function(){el.remove()}})(s);
-  }
-}
-document.getElementById('upForm').addEventListener('submit',function(e){
-  e.preventDefault();
-  var email=document.getElementById('uEmail').value.trim();
-  var name=document.getElementById('uName').value.trim();
-  if(!email) return;
-  try{ localStorage.setItem(JOIN_KEY,email); if(name) localStorage.setItem(NAME_KEY,name); }catch(err){}
-  document.getElementById('upDone').style.display='block';
-  var r=e.target.getBoundingClientRect(); bsConfetti(r.left+r.width/2, r.top+30);
-  setTimeout(function(){ location.href='profile.html'; }, 1200);
-});
-document.getElementById('inForm').addEventListener('submit',function(e){
-  e.preventDefault();
-  var email=document.getElementById('iEmail').value.trim();
-  var saved=getJoined(), msg=document.getElementById('inMsg');
-  if(!saved){ msg.innerHTML='<span style="color:var(--coral)">No account on this device yet — create one above.</span>'; return; }
-  if(saved.toLowerCase()!==email.toLowerCase()){ msg.innerHTML='<span style="color:var(--coral)">That email isn\'t the account on this device.</span>'; return; }
-  msg.innerHTML='<span style="color:#9ec49a">Welcome back — taking you to your profile&hellip;</span>';
-  setTimeout(function(){ location.href='profile.html'; }, 800);
-});
-</script>
 
 <script>/* sh2DropToggle */document.querySelectorAll('.sh2-drop > a').forEach(function(a){a.addEventListener('click',function(e){if(window.matchMedia('(max-width: 990px)').matches){e.preventDefault();a.parentNode.classList.toggle('open');}});});</script>
 </body>
