@@ -27,7 +27,7 @@
     <h1>Bless. Inspire. Grow.</h1>
     <p class="tag">Everyday finds. Bigger possibilities.</p>
     <div class="sale">🎄 The B.I.G. Christmas Chop Sale — <strong>8% off orders $40+</strong> · code BIGCHOP8</div>
-    <a class="btn" href="https://kpbusiness06-commits.github.io/kitchenware-ecommerce-template/home.html">ENTER THE STORE →</a>
+    <a class="btn" href="{{ section.settings.enter_url | default: 'https://kpbusiness06-commits.github.io/kitchenware-ecommerce-template/home.html' }}">ENTER THE STORE →</a>
     <div class="row">
       <a class="btn ghost" href="{{ routes.account_url }}">Sign In</a>
       <a class="btn ghost" href="{{ routes.account_url }}">Join / Sign Up</a>
@@ -39,7 +39,7 @@
 {% schema %}
 {
   "name": "Startup splash",
-  "settings": [],
+  "settings": [{ "type": "url", "id": "enter_url", "label": "Enter the Store destination" }],
   "presets": [{ "name": "Startup splash" }]
 }
 {% endschema %}
