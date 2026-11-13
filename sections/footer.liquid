@@ -1,3 +1,6 @@
+{% style %}
+.bs-fbless{color:#d9bc7a;letter-spacing:.3em;font-size:.72rem;text-transform:uppercase;display:block;margin-bottom:.3rem}
+{% endstyle %}
 <footer class="bs-footer">
   <div class="bs-fgrid">
     <div>
@@ -6,34 +9,32 @@
     </div>
     <div>
       <h4>Shop</h4>
-      {% if linklists.footer.links.size > 0 %}
-        {% for link in linklists.footer.links %}<a href="{{ link.url }}">{{ link.title }}</a>{% endfor %}
-      {% else %}
-        <a href="{{ routes.all_products_collection_url }}">All Products</a>
-        <a href="/collections/best-selling">B.I.G.'s Best Sellers</a>
-        <a href="/collections/utensils-gadgets">Utensils &amp; Gadgets</a>
-        <a href="/collections/appliances">Appliances</a>
-        <a href="/collections/cleaning-storage">Cleaning &amp; Storage</a>
-      {% endif %}
+      <a href="/collections/appliances">Appliances</a>
+      <a href="/collections/bakeware">Bakeware</a>
+      <a href="/collections/best-selling">B.I.G.'s Best Sellers</a>
+      <a href="/collections/cleaning-storage">Cleaning &amp; Storage</a>
+      <a href="/collections/cookware">Cookware</a>
+      <a href="/collections/knives-boards">Knives &amp; Boards</a>
+      <a href="/collections/utensils-gadgets">Utensils &amp; Gadgets</a>
+      <a href="/pages/bulk-orders">Business &amp; Bulk Orders</a>
     </div>
     <div>
       <h4>Customer Care</h4>
-      <a href="https://kpbusiness06-commits.github.io/kitchenware-ecommerce-template/contact.html">FAQ</a>
       <a href="/policies/shipping-policy">Shipping Policy</a>
       <a href="/policies/refund-policy">Refund Policy</a>
-      {% if pages['contact'] %}<a href="{{ pages['contact'].url }}">Contact Us</a>{% elsif shop.email %}<a href="mailto:{{ shop.email }}">Email Us</a>{% endif %}
+      <a href="/pages/about-us">About Us</a>
+      <a href="/pages/help">Contact Us</a>
+      <a href="/pages/help">FAQ</a>
     </div>
     <div>
       <h4>Legal</h4>
-      {% for policy in shop.policies %}
-        <a href="{{ policy.url }}">{{ policy.title }}</a>
-      {% else %}
-        <span style="color:#b8b0a0">Policies coming soon</span>
-      {% endfor %}
+      <a href="/policies/privacy-policy">Privacy Policy</a>
+      <a href="/policies/terms-of-service">Terms Of Service</a>
+      <a href="/policies/legal-notice">Legal Notice</a>
     </div>
   </div>
   <div class="bs-fbottom">
-    <span>&copy; {{ 'now' | date: '%Y' }} {{ shop.name }}. All rights reserved.</span>
+    <span><span class="bs-fbless">Bless &middot; Inspire &middot; Grow</span>&copy; {{ 'now' | date: '%Y' }} {{ shop.name }}. All rights reserved.</span>
     <span class="bs-pay">
       {% for type in shop.enabled_payment_types %}
         <img src="https://cdn.shopify.com/shopifycloud/shopify/assets/payment-icons/{{ type | payment_type_svg_filename }}" alt="{{ type }}" loading="lazy" onerror="this.remove()">
