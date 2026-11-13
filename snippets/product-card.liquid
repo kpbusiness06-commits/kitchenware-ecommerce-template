@@ -10,6 +10,9 @@
   </a>
   <div class="bs-card-body">
     <h3><a href="{{ product.url }}">{{ product.title }}</a></h3>
+    {% if product.metafields.judgeme.badge != blank %}
+      <div class="bs-stars">{{ product.metafields.judgeme.badge }}</div>
+    {% endif %}
     <div class="bs-card-row">
       <p class="bs-price">{{ product.price | money }}{% if product.compare_at_price > product.price %} <s>{{ product.compare_at_price | money }}</s>{% endif %}</p>
       {% if product.available %}
