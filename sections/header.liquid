@@ -3,7 +3,7 @@
   <div class="bs-bar">
     <button class="bs-burger" type="button" aria-label="Open menu" data-nav-toggle><span></span><span></span></button>
     <button class="bs-icon bs-search-mob" type="button" aria-label="Search" data-search-open><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20.5 20.5 16.6 16.6"/></svg></button>
-    <a class="bs-brand" href="{{ routes.root_url }}">{{ shop.name }}</a>
+    <a class="bs-brand" href="/pages/home">{{ shop.name }}</a>
     <nav class="bs-nav" data-nav>
       {% for link in linklists[section.settings.menu].links %}
         {% if link.links.size > 0 %}
@@ -18,7 +18,7 @@
           <a href="{{ link.url }}"{% if link.active %} class="bs-here"{% endif %}>{{ link.title }}</a>
         {% endif %}
       {% else %}
-        <a href="{{ routes.root_url }}">Home</a>
+        <a href="/pages/home">Home</a>
         <a href="{{ routes.all_products_collection_url }}">Products</a>
       {% endfor %}
     </nav>
