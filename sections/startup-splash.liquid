@@ -1,0 +1,45 @@
+<style>
+.bs-splash{min-height:100vh;background:#242321;color:#f7f4ed;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:2rem 1.25rem;position:relative;overflow:hidden;margin:0}
+.bs-splash .glow{position:absolute;inset:0;pointer-events:none;background:radial-gradient(600px 300px at 15% -5%,rgba(182,154,90,.15),transparent 60%),radial-gradient(700px 340px at 90% 0%,rgba(182,154,90,.09),transparent 60%)}
+.bs-splash .wrap{position:relative;width:100%;max-width:430px;text-align:center}
+.bs-splash .logo{width:118px;height:auto;filter:drop-shadow(0 10px 26px rgba(0,0,0,.45))}
+.bs-splash .brand{font-size:.8rem;letter-spacing:.42em;color:#b8b0a0;text-transform:uppercase;margin-top:.9rem}
+.bs-splash h1{font-size:clamp(2.1rem,9vw,3rem);line-height:1.1;font-weight:800;margin:.55rem 0 .45rem;background:linear-gradient(100deg,#d9bc7a 10%,#fff6df 30%,#b69a5a 55%,#d9bc7a 80%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.bs-splash .tag{color:#b8b0a0;font-size:1.02rem;margin:0 0 1.4rem}
+.bs-splash .sale{display:inline-block;border:1px solid rgba(182,154,90,.28);background:#2e2c29;border-radius:999px;padding:.5rem 1rem;font-size:.85rem;color:#f7f4ed;margin-bottom:1.6rem}
+.bs-splash .sale strong{color:#d9bc7a}
+.bs-splash .btn{display:block;font-weight:800;letter-spacing:.04em;border-radius:999px;padding:1.05rem 1.5rem;background:linear-gradient(180deg,#d9bc7a,#b69a5a);color:#242321;text-decoration:none;box-shadow:0 8px 22px rgba(182,154,90,.3);font-size:1.08rem}
+.bs-splash .row{display:flex;gap:.7rem;margin-top:.85rem}
+.bs-splash .btn.ghost{flex:1;background:transparent;color:#d9bc7a;border:1.5px solid #b69a5a;box-shadow:none;font-size:.98rem;padding:.85rem .5rem}
+.bs-splash .note{color:#b8b0a0;font-size:.85rem;margin-top:1.3rem;line-height:1.55}
+.bs-splash .foot{position:relative;margin-top:2.2rem;color:#b8b0a0;font-size:.75rem;letter-spacing:.28em;text-transform:uppercase;text-align:center}
+@media (min-width:768px){
+  .bs-splash .wrap{max-width:840px}
+  .bs-splash h1{font-size:clamp(2.6rem,5.2vw,3.4rem);white-space:nowrap}
+  .bs-splash .btn,.bs-splash .row,.bs-splash .note{max-width:430px;margin-left:auto;margin-right:auto}
+}
+</style>
+<div class="bs-splash">
+  <div class="glow"></div>
+  <div class="wrap">
+    <img class="logo" src="https://cdn.shopify.com/s/files/1/0791/5218/5423/files/big-steppas-logo-transparent_2c6351c7-007e-4837-8998-84cf7b4df9bc.png?v=1794547991" alt="B.I.G. Steppas LLC logo" width="118">
+    <div class="brand">B.I.G. Steppas LLC</div>
+    <h1>Bless. Inspire. Grow.</h1>
+    <p class="tag">Everyday finds. Bigger possibilities.</p>
+    <div class="sale">🎄 The B.I.G. Christmas Chop Sale — <strong>8% off orders $40+</strong> · code BIGCHOP8</div>
+    <a class="btn" href="https://kpbusiness06-commits.github.io/kitchenware-ecommerce-template/home.html">ENTER THE STORE →</a>
+    <div class="row">
+      <a class="btn ghost" href="{{ routes.account_url }}">Sign In</a>
+      <a class="btn ghost" href="{{ routes.account_url }}">Join / Sign Up</a>
+    </div>
+    <p class="note">Members step in first — accounts and checkout run through Shopify.</p>
+  </div>
+  <div class="foot">Bless · Inspire · Grow</div>
+</div>
+{% schema %}
+{
+  "name": "Startup splash",
+  "settings": [],
+  "presets": [{ "name": "Startup splash" }]
+}
+{% endschema %}
