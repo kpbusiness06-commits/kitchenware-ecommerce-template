@@ -94,8 +94,8 @@
   .join input{flex:1 1 260px;max-width:360px;padding:.78rem 1.05rem;border-radius:999px;border:1px solid var(--line);background:rgba(0,0,0,.3);color:var(--ink);font:inherit;outline:none;transition:border-color .2s,box-shadow .2s}
   .join input:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(182,154,90,.25)}
   .joined{display:none;font-size:1.05rem;color:#cfe8c8;font-weight:600}
-  footer{margin-top:2.6rem;text-align:center;color:var(--muted);font-size:.85rem;line-height:1.7}
-  footer .big-steppas{color:var(--gold-hi);letter-spacing:.3em;font-size:.72rem;text-transform:uppercase}
+  
+  
   /* toast */
   .toast{position:fixed;left:50%;bottom:26px;transform:translate(-50%,80px);background:#111;border:1px solid var(--gold);color:var(--ink);padding:.7rem 1.2rem;border-radius:999px;font-weight:600;z-index:50;transition:transform .45s cubic-bezier(.2,.9,.3,1.2);box-shadow:0 12px 30px rgba(0,0,0,.5)}
   .toast.show{transform:translate(-50%,0)}
@@ -154,6 +154,18 @@
   .sh2-drop > a::after{content:'▾';margin-left:.4rem;color:var(--gold-hi);display:inline-block;transition:transform .25s}
   .sh2-drop.open > a::after{transform:rotate(180deg)}
 }
+
+/* footer */
+footer{margin-top:3rem;border-top:1px solid var(--line);padding-top:1.8rem}
+.fgrid{display:grid;grid-template-columns:1fr;gap:1.4rem}
+@media(min-width:760px){.fgrid{grid-template-columns:2fr 1fr 1fr 1fr}}
+footer h4{font-size:.82rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold-hi);margin-bottom:.6rem}
+footer a{display:block;color:var(--muted);text-decoration:none;padding:.22rem 0;font-size:.95rem}
+footer a:hover{color:var(--ink)}
+footer .fbrand{font-weight:800;letter-spacing:.18em;color:var(--ink);margin-bottom:.4rem}
+footer .fstate{color:var(--muted);line-height:1.55;max-width:300px}
+.copy{margin-top:1.8rem;text-align:center;color:var(--muted);font-size:.85rem}
+.copy .bs{color:var(--gold-hi);letter-spacing:.3em;font-size:.72rem;text-transform:uppercase;display:block;margin-bottom:.3rem}
 </style>
 </head>
 <body>
@@ -248,9 +260,38 @@
   </section>
 
   <footer class="rise d6">
-    <div class="big-steppas">Bless &middot; Inspire &middot; Grow</div>
-    B.I.G. Steppas LLC &mdash; Kitchen tools with purpose.<br>
-    Codes apply at checkout on the B.I.G. Steppas store.
+    <div class="fgrid">
+      <div>
+        <div class="fbrand">B.I.G. STEPPAS LLC</div>
+        <div class="fstate">Kitchen tools with purpose.<br>Bless. Inspire. Grow.</div>
+      </div>
+      <div>
+        <h4>Shop</h4>
+        <a href="https://steppasllc.myshopify.com/collections/appliances">Appliances</a>
+        <a href="https://steppasllc.myshopify.com/collections/bakeware">Bakeware</a>
+        <a href="https://steppasllc.myshopify.com/collections/best-selling">B.I.G.'s Best Sellers</a>
+        <a href="https://steppasllc.myshopify.com/collections/cleaning-storage">Cleaning &amp; Storage</a>
+        <a href="https://steppasllc.myshopify.com/collections/cookware">Cookware</a>
+        <a href="https://steppasllc.myshopify.com/collections/knives-boards">Knives &amp; Boards</a>
+        <a href="https://steppasllc.myshopify.com/collections/utensils-gadgets">Utensils &amp; Gadgets</a>
+        <a href="bulk-order.html">Business &amp; Bulk Orders</a>
+      </div>
+      <div>
+        <h4>Customer Care</h4>
+        <a href="https://steppasllc.myshopify.com/policies/shipping-policy">Shipping Policy</a>
+        <a href="https://steppasllc.myshopify.com/policies/refund-policy">Refund Policy</a>
+        <a href="about.html">About Us</a>
+        <a href="contact.html">Contact Us</a>
+        <a href="contact.html">FAQ</a>
+      </div>
+      <div>
+        <h4>Legal</h4>
+        <a href="https://steppasllc.myshopify.com/policies/privacy-policy">Privacy Policy</a>
+        <a href="https://steppasllc.myshopify.com/policies/terms-of-service">Terms Of Service</a>
+        <a href="https://steppasllc.myshopify.com/policies/legal-notice">Legal Notice</a>
+      </div>
+    </div>
+    <div class="copy"><span class="bs">Bless &middot; Inspire &middot; Grow</span>&copy; 2026 B.I.G. Steppas LLC. All rights reserved.</div>
   </footer>
 </div>
 

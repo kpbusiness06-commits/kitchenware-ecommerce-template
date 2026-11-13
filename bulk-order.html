@@ -54,8 +54,8 @@ textarea{min-height:110px;resize:vertical}
 .note{font-size:.85rem;color:var(--muted);text-align:center}
 .done{display:none;text-align:center;padding:1.2rem .5rem .4rem}
 .done .check{font-size:2.2rem;color:#9ec49a;display:block;margin-bottom:.4rem;animation:bob 3s ease-in-out infinite}
-footer{margin-top:2.4rem;text-align:center;color:var(--muted);font-size:.85rem;line-height:1.7}
-footer .bs{color:var(--gold-hi);letter-spacing:.3em;font-size:.72rem;text-transform:uppercase}
+
+
 .confetti{position:fixed;width:9px;height:14px;z-index:60;pointer-events:none;border-radius:2px}
 @media (prefers-reduced-motion: reduce){*,*::before,*::after{animation-duration:.001s !important;animation-iteration-count:1 !important;transition-duration:.001s !important}.rise{opacity:1;transform:none}}
 
@@ -99,6 +99,18 @@ footer .bs{color:var(--gold-hi);letter-spacing:.3em;font-size:.72rem;text-transf
   .sh2-drop > a::after{content:'▾';margin-left:.4rem;color:var(--gold-hi);display:inline-block;transition:transform .25s}
   .sh2-drop.open > a::after{transform:rotate(180deg)}
 }
+
+/* footer */
+footer{margin-top:3rem;border-top:1px solid var(--line);padding-top:1.8rem}
+.fgrid{display:grid;grid-template-columns:1fr;gap:1.4rem}
+@media(min-width:760px){.fgrid{grid-template-columns:2fr 1fr 1fr 1fr}}
+footer h4{font-size:.82rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold-hi);margin-bottom:.6rem}
+footer a{display:block;color:var(--muted);text-decoration:none;padding:.22rem 0;font-size:.95rem}
+footer a:hover{color:var(--ink)}
+footer .fbrand{font-weight:800;letter-spacing:.18em;color:var(--ink);margin-bottom:.4rem}
+footer .fstate{color:var(--muted);line-height:1.55;max-width:300px}
+.copy{margin-top:1.8rem;text-align:center;color:var(--muted);font-size:.85rem}
+.copy .bs{color:var(--gold-hi);letter-spacing:.3em;font-size:.72rem;text-transform:uppercase;display:block;margin-bottom:.3rem}
 </style>
 </head>
 <body>
@@ -159,9 +171,39 @@ document.getElementById('bulkForm').addEventListener('submit',function(e){
 });
 </script>
 
-  <footer class="rise d5">
-    <div class="bs">Bless &middot; Inspire &middot; Grow</div>
-    B.I.G. Steppas LLC &mdash; Kitchen tools with purpose.
+  <footer class="rise d6">
+    <div class="fgrid">
+      <div>
+        <div class="fbrand">B.I.G. STEPPAS LLC</div>
+        <div class="fstate">Kitchen tools with purpose.<br>Bless. Inspire. Grow.</div>
+      </div>
+      <div>
+        <h4>Shop</h4>
+        <a href="https://steppasllc.myshopify.com/collections/appliances">Appliances</a>
+        <a href="https://steppasllc.myshopify.com/collections/bakeware">Bakeware</a>
+        <a href="https://steppasllc.myshopify.com/collections/best-selling">B.I.G.'s Best Sellers</a>
+        <a href="https://steppasllc.myshopify.com/collections/cleaning-storage">Cleaning &amp; Storage</a>
+        <a href="https://steppasllc.myshopify.com/collections/cookware">Cookware</a>
+        <a href="https://steppasllc.myshopify.com/collections/knives-boards">Knives &amp; Boards</a>
+        <a href="https://steppasllc.myshopify.com/collections/utensils-gadgets">Utensils &amp; Gadgets</a>
+        <a href="bulk-order.html">Business &amp; Bulk Orders</a>
+      </div>
+      <div>
+        <h4>Customer Care</h4>
+        <a href="https://steppasllc.myshopify.com/policies/shipping-policy">Shipping Policy</a>
+        <a href="https://steppasllc.myshopify.com/policies/refund-policy">Refund Policy</a>
+        <a href="about.html">About Us</a>
+        <a href="contact.html">Contact Us</a>
+        <a href="contact.html">FAQ</a>
+      </div>
+      <div>
+        <h4>Legal</h4>
+        <a href="https://steppasllc.myshopify.com/policies/privacy-policy">Privacy Policy</a>
+        <a href="https://steppasllc.myshopify.com/policies/terms-of-service">Terms Of Service</a>
+        <a href="https://steppasllc.myshopify.com/policies/legal-notice">Legal Notice</a>
+      </div>
+    </div>
+    <div class="copy"><span class="bs">Bless &middot; Inspire &middot; Grow</span>&copy; 2026 B.I.G. Steppas LLC. All rights reserved.</div>
   </footer>
 </div>
 <script>
