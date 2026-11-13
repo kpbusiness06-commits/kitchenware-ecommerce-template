@@ -13,7 +13,8 @@
       "header": {
         "type": "header",
         "settings": {
-          "announcement": "Welcome to our store"
+          "announcement": "Welcome to our store",
+          "menu": "main-menu"
         }
       },
       "footer": {
@@ -42,6 +43,11 @@
       },
       "9094328589753815681": {
         "type": "shopify://apps/hextom-shipping-bar/blocks/fsb-embeded-block/7ef5d9af-75a2-45c7-9b1b-f9240ee488e9",
+        "disabled": false,
+        "settings": {}
+      },
+      "16278478101612877664": {
+        "type": "shopify://apps/pagefly-ai-page-builder/blocks/app-embed/83e179f7-59a0-4589-8c66-c0dddf959200",
         "disabled": false,
         "settings": {}
       }
